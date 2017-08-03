@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6F19F49E1EFAFC8D009D19C6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F19F49D1EFAFC8D009D19C6 /* Player.swift */; };
+		6F19F4A01EFAFD1D009D19C6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F19F49F1EFAFD1D009D19C6 /* Day.swift */; };
+		6F4948401EF0CFF80011EB82 /* SignupDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49483F1EF0CFF80011EB82 /* SignupDayViewController.swift */; };
+		6F63DAB01EFCA9A500C90678 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAAF1EFCA9A500C90678 /* PlayerTableViewCell.swift */; };
+		6F63DAB21EFDA7F300C90678 /* ImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB11EFDA7F300C90678 /* ImageHeaderView.swift */; };
+		6F63DAB41EFDAAD100C90678 /* SignupDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */; };
+		6F63DAB61EFDACCE00C90678 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB51EFDACCE00C90678 /* Utils.swift */; };
+		6F63DAD21EFDF3FF00C90678 /* ObservedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */; };
+		6FD1F8D41EE88DDF005D3C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */; };
+		6FD1F8D61EE88DDF005D3C2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */; };
+		6FD1F8D91EE88DDF005D3C2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */; };
+		6FD1F8DB1EE88DDF005D3C2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FD1F8DA1EE88DDF005D3C2D /* Assets.xcassets */; };
+		6FD1F8DE1EE88DDF005D3C2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */; };
+		6FF400A81F1D9C0D006BE442 /* CircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF400A71F1D9C0C006BE442 /* CircularSlider.swift */; };
+		6FF400AA1F1EDF70006BE442 /* CircularSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF400A91F1EDF70006BE442 /* CircularSliderView.swift */; };
+		6FF9D2C91EF070F000AC507C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9D2C81EF070F000AC507C /* Constants.swift */; };
+		6FF9D7301F16EF2C00EF01C2 /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9D72F1F16EF2C00EF01C2 /* AddPlayerViewController.swift */; };
+		FFC078355D9B88A807F4CAFF /* Pods_Chukkar_Signup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F6B7836FDFDFAE45E4AD07C /* Pods_Chukkar_Signup.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6F19F49D1EFAFC8D009D19C6 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		6F19F49F1EFAFD1D009D19C6 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		6F49483F1EF0CFF80011EB82 /* SignupDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupDayViewController.swift; sourceTree = "<group>"; };
+		6F63DAAF1EFCA9A500C90678 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		6F63DAB11EFDA7F300C90678 /* ImageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHeaderView.swift; sourceTree = "<group>"; };
+		6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupDayTableViewController.swift; sourceTree = "<group>"; };
+		6F63DAB51EFDACCE00C90678 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservedNavigationController.swift; sourceTree = "<group>"; };
+		6FD1F8D01EE88DDF005D3C2D /* Chukkar Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chukkar Signup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6FD1F8D81EE88DDF005D3C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6FD1F8DA1EE88DDF005D3C2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6FD1F8DD1EE88DDF005D3C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6FD1F8DF1EE88DDF005D3C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FDD24E91F19A65800F1814D /* Chukkar-Signup-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chukkar-Signup-Bridging-Header.h"; sourceTree = "<group>"; };
+		6FF400A71F1D9C0C006BE442 /* CircularSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularSlider.swift; sourceTree = "<group>"; };
+		6FF400A91F1EDF70006BE442 /* CircularSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularSliderView.swift; sourceTree = "<group>"; };
+		6FF9D2C81EF070F000AC507C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6FF9D72F1F16EF2C00EF01C2 /* AddPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
+		8F6B7836FDFDFAE45E4AD07C /* Pods_Chukkar_Signup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chukkar_Signup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC210480CF96E4DD7E6C2C3 /* Pods-Chukkar Signup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chukkar Signup.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chukkar Signup/Pods-Chukkar Signup.release.xcconfig"; sourceTree = "<group>"; };
+		CC410DDD5D5F8922181A4D2E /* Pods-Chukkar Signup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chukkar Signup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chukkar Signup/Pods-Chukkar Signup.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6FD1F8CD1EE88DDF005D3C2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC078355D9B88A807F4CAFF /* Pods_Chukkar_Signup.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E578239A1ECD21080F80CC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F6B7836FDFDFAE45E4AD07C /* Pods_Chukkar_Signup.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56D437AF4260C78F6774EBD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC410DDD5D5F8922181A4D2E /* Pods-Chukkar Signup.debug.xcconfig */,
+				AFC210480CF96E4DD7E6C2C3 /* Pods-Chukkar Signup.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6FD1F8C71EE88DDF005D3C2D = {
+			isa = PBXGroup;
+			children = (
+				6FD1F8D21EE88DDF005D3C2D /* Chukkar Signup */,
+				6FD1F8D11EE88DDF005D3C2D /* Products */,
+				56D437AF4260C78F6774EBD2 /* Pods */,
+				3E578239A1ECD21080F80CC3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6FD1F8D11EE88DDF005D3C2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FD1F8D01EE88DDF005D3C2D /* Chukkar Signup.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6FD1F8D21EE88DDF005D3C2D /* Chukkar Signup */ = {
+			isa = PBXGroup;
+			children = (
+				6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */,
+				6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */,
+				6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */,
+				6FF400A71F1D9C0C006BE442 /* CircularSlider.swift */,
+				6FF400A91F1EDF70006BE442 /* CircularSliderView.swift */,
+				6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */,
+				6FF9D72F1F16EF2C00EF01C2 /* AddPlayerViewController.swift */,
+				6F63DAB11EFDA7F300C90678 /* ImageHeaderView.swift */,
+				6F63DAAF1EFCA9A500C90678 /* PlayerTableViewCell.swift */,
+				6FF9D2C81EF070F000AC507C /* Constants.swift */,
+				6F63DAB51EFDACCE00C90678 /* Utils.swift */,
+				6F19F49D1EFAFC8D009D19C6 /* Player.swift */,
+				6F19F49F1EFAFD1D009D19C6 /* Day.swift */,
+				6FDD24E71F19A5D100F1814D /* Supporting Files */,
+				6FDD24EA1F19A6E600F1814D /* Deprecated Files */,
+			);
+			path = "Chukkar Signup";
+			sourceTree = "<group>";
+		};
+		6FDD24E71F19A5D100F1814D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6FDD24E91F19A65800F1814D /* Chukkar-Signup-Bridging-Header.h */,
+				6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */,
+				6FD1F8DA1EE88DDF005D3C2D /* Assets.xcassets */,
+				6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */,
+				6FD1F8DF1EE88DDF005D3C2D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6FDD24EA1F19A6E600F1814D /* Deprecated Files */ = {
+			isa = PBXGroup;
+			children = (
+				6F49483F1EF0CFF80011EB82 /* SignupDayViewController.swift */,
+			);
+			name = "Deprecated Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6FD1F8CF1EE88DDF005D3C2D /* Chukkar Signup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FD1F8E21EE88DDF005D3C2D /* Build configuration list for PBXNativeTarget "Chukkar Signup" */;
+			buildPhases = (
+				609F3302793FCD6A65A4CBB1 /* [CP] Check Pods Manifest.lock */,
+				6FD1F8CC1EE88DDF005D3C2D /* Sources */,
+				6FD1F8CD1EE88DDF005D3C2D /* Frameworks */,
+				6FD1F8CE1EE88DDF005D3C2D /* Resources */,
+				36E6487AB54EEF4C4A6E90D5 /* [CP] Embed Pods Frameworks */,
+				7F786798D1F352BC42E6616F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Chukkar Signup";
+			productName = "Chukkar Signup";
+			productReference = 6FD1F8D01EE88DDF005D3C2D /* Chukkar Signup.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6FD1F8C81EE88DDF005D3C2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Bay Area Polo Clubs";
+				TargetAttributes = {
+					6FD1F8CF1EE88DDF005D3C2D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6LWH59D976;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6FD1F8CB1EE88DDF005D3C2D /* Build configuration list for PBXProject "Chukkar Signup" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6FD1F8C71EE88DDF005D3C2D;
+			productRefGroup = 6FD1F8D11EE88DDF005D3C2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6FD1F8CF1EE88DDF005D3C2D /* Chukkar Signup */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6FD1F8CE1EE88DDF005D3C2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD1F8DE1EE88DDF005D3C2D /* LaunchScreen.storyboard in Resources */,
+				6FD1F8DB1EE88DDF005D3C2D /* Assets.xcassets in Resources */,
+				6FD1F8D91EE88DDF005D3C2D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36E6487AB54EEF4C4A6E90D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chukkar Signup/Pods-Chukkar Signup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		609F3302793FCD6A65A4CBB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7F786798D1F352BC42E6616F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chukkar Signup/Pods-Chukkar Signup-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6FD1F8CC1EE88DDF005D3C2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F63DAB01EFCA9A500C90678 /* PlayerTableViewCell.swift in Sources */,
+				6FF9D7301F16EF2C00EF01C2 /* AddPlayerViewController.swift in Sources */,
+				6FD1F8D61EE88DDF005D3C2D /* MainViewController.swift in Sources */,
+				6FF400A81F1D9C0D006BE442 /* CircularSlider.swift in Sources */,
+				6FD1F8D41EE88DDF005D3C2D /* AppDelegate.swift in Sources */,
+				6F63DAD21EFDF3FF00C90678 /* ObservedNavigationController.swift in Sources */,
+				6FF400AA1F1EDF70006BE442 /* CircularSliderView.swift in Sources */,
+				6F19F4A01EFAFD1D009D19C6 /* Day.swift in Sources */,
+				6FF9D2C91EF070F000AC507C /* Constants.swift in Sources */,
+				6F63DAB61EFDACCE00C90678 /* Utils.swift in Sources */,
+				6F19F49E1EFAFC8D009D19C6 /* Player.swift in Sources */,
+				6F4948401EF0CFF80011EB82 /* SignupDayViewController.swift in Sources */,
+				6F63DAB21EFDA7F300C90678 /* ImageHeaderView.swift in Sources */,
+				6F63DAB41EFDAAD100C90678 /* SignupDayTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FD1F8D81EE88DDF005D3C2D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FD1F8DD1EE88DDF005D3C2D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6FD1F8E01EE88DDF005D3C2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6FD1F8E11EE88DDF005D3C2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6FD1F8E31EE88DDF005D3C2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC410DDD5D5F8922181A4D2E /* Pods-Chukkar Signup.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6LWH59D976;
+				INFOPLIST_FILE = "Chukkar Signup/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.defenestrate.chukkars.Chukkar-Signup";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Chukkar Signup/Chukkar-Signup-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6FD1F8E41EE88DDF005D3C2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFC210480CF96E4DD7E6C2C3 /* Pods-Chukkar Signup.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6LWH59D976;
+				INFOPLIST_FILE = "Chukkar Signup/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.defenestrate.chukkars.Chukkar-Signup";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Chukkar Signup/Chukkar-Signup-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6FD1F8CB1EE88DDF005D3C2D /* Build configuration list for PBXProject "Chukkar Signup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FD1F8E01EE88DDF005D3C2D /* Debug */,
+				6FD1F8E11EE88DDF005D3C2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FD1F8E21EE88DDF005D3C2D /* Build configuration list for PBXNativeTarget "Chukkar Signup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FD1F8E31EE88DDF005D3C2D /* Debug */,
+				6FD1F8E41EE88DDF005D3C2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6FD1F8C81EE88DDF005D3C2D /* Project object */;
+}

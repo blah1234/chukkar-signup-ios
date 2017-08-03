@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SignupDayTableViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:SignupDayTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlayerViewController.viewWillAppear(Bool) -&gt; ():AddPlayerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nameTextField.floatingLabel.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlayerViewController.(addPlayersAsync() -&gt; ()).(closure #1):AddPlayerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "let responseString = String(data: data, encoding: .utf8)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlayerViewController.viewDidAppear(Bool) -&gt; ():AddPlayerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nameTextField.floatingLabel.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JVFloatLabeledTextField setLabelOriginForTextAlignment]:JVFloatLabeledTextField.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_floatingLabelXPadding">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mPageContainer.viewControllers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JVFloatLabeledTextField defaultFloatingLabelFont]:JVFloatLabeledTextField.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "textFieldFont.fontName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CircularSlider.draw(CGRect) -&gt; ():CircularSlider.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.bounds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlayerViewController.viewDidLoad() -&gt; ():AddPlayerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nameTextField.floatingLabel.frame">
+            </PersistentString>
+            <PersistentString
+               value = "backgroundImage">
+            </PersistentString>
+            <PersistentString
+               value = "assetName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

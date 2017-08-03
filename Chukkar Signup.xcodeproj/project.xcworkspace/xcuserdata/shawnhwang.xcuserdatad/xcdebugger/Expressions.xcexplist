@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "MainViewController.presentationIndex(for : UIPageViewController) -&gt; Int:MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewControllers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignupDayTableViewController.getImage() -&gt; UIImage:SignupDayTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "usedImages">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.pageViewController(UIPageViewController, viewControllerAfter : UIViewController) -&gt; UIViewController?:MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mDays">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignupDayTableViewController.updateHeaderView() -&gt; ():SignupDayTableViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SignupDayTableViewController.scrollViewDidScroll(UIScrollView) -&gt; ():SignupDayTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.viewDidLoad() -&gt; ():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.navigationBarVisibilityDidChange(isHidden : Bool) -&gt; ():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mPageContainer.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "mCurrentIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
