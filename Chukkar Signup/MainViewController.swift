@@ -358,7 +358,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                 self.blurEffectView.effect = blurEffect
             }
             
-            blurEffectView.pauseAnimation(delay: 0.4)
+            blurEffectView.pauseAnimation(delay: 0.5)
         case false:
             blurEffectView.resumeAnimation()
             

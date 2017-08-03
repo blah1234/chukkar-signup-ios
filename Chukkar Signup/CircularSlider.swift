@@ -19,6 +19,9 @@ class CircularSlider: UIControl {
     }
     
     
+    private let selFeedbackGen = UISelectionFeedbackGenerator()
+    
+    
     // MARK: Math Helpers
     func DegreesToRadians(_ value:Double) -> Double {
         return value * M_PI / 180.0
@@ -152,8 +155,7 @@ class CircularSlider: UIControl {
         if newText != textField.text {
             textField.text = newText
             
-            let gen = UISelectionFeedbackGenerator()
-            gen.selectionChanged()
+            selFeedbackGen.selectionChanged()
         }
     }
     

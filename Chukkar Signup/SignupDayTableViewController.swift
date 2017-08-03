@@ -116,6 +116,14 @@ class SignupDayTableViewController: UITableViewController {
         
         SignupDayViewController.usedImages.insert(_imageId!)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.tableView.isEditing {
+            self.tableView.setEditing(false, animated: true)
+        }
+    }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
