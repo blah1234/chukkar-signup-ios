@@ -3,42 +3,35 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "SignupDayTableViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:SignupDayTableViewController.swift">
+         contextName = "SignupDayTableViewController.prepareForPopoverPresentation(UIPopoverPresentationController) -&gt; ():SignupDayTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.frame">
+               value = "UIPopoverArrowDirection.unknown">
+            </PersistentString>
+            <PersistentString
+               value = "popoverCtrl.arrowDirection">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AddPlayerViewController.viewWillAppear(Bool) -&gt; ():AddPlayerViewController.swift">
+         contextName = "EditPlayerViewController.viewDidLoad() -&gt; ():EditPlayerViewController.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "self.popoverPresentationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlayerViewController.viewDidLoad() -&gt; ():AddPlayerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "assetName">
+            </PersistentString>
             <PersistentString
                value = "nameTextField.floatingLabel.frame">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AddPlayerViewController.(addPlayersAsync() -&gt; ()).(closure #1):AddPlayerViewController.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "let responseString = String(data: data, encoding: .utf8)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AddPlayerViewController.viewDidAppear(Bool) -&gt; ():AddPlayerViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "nameTextField.floatingLabel.frame">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[JVFloatLabeledTextField setLabelOriginForTextAlignment]:JVFloatLabeledTextField.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "_floatingLabelXPadding">
+               value = "backgroundImage">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -51,12 +44,39 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[JVFloatLabeledTextField setLabelOriginForTextAlignment]:JVFloatLabeledTextField.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_floatingLabelXPadding">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlayerViewController.viewWillAppear(Bool) -&gt; ():AddPlayerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nameTextField.floatingLabel.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlayerViewController.viewDidAppear(Bool) -&gt; ():AddPlayerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nameTextField.floatingLabel.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[JVFloatLabeledTextField defaultFloatingLabelFont]:JVFloatLabeledTextField.m">
          <PersistentStrings>
             <PersistentString
                value = "textFieldFont.fontName">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignupDayTableViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():SignupDayTableViewController.swift">
       </ContextState>
       <ContextState
          contextName = "CircularSlider.draw(CGRect) -&gt; ():CircularSlider.swift">
@@ -67,16 +87,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AddPlayerViewController.viewDidLoad() -&gt; ():AddPlayerViewController.swift">
+         contextName = "SignupDayTableViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:SignupDayTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "nameTextField.floatingLabel.frame">
+               value = "cell.frame">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlayerViewController.(addPlayersAsync() -&gt; ()).(closure #1):AddPlayerViewController.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "backgroundImage">
-            </PersistentString>
-            <PersistentString
-               value = "assetName">
+               value = "let responseString = String(data: data, encoding: .utf8)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

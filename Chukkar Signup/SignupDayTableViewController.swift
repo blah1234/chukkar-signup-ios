@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupDayTableViewController: UITableViewController {
+class SignupDayTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
 
     var pageIndex: Int = 0
     var displayedDay: Day!
@@ -34,6 +34,7 @@ class SignupDayTableViewController: UITableViewController {
     var headerMaskLayer: CAShapeLayer!
     
     struct Storyboard {
+        static let editPlayerSegueId = "editPlayer"
         static let cellId = "PlayerTableViewCell"
     }
 
@@ -203,7 +204,7 @@ extension SignupDayTableViewController {
         let edit = UITableViewRowAction(style: .normal, title: "          ") {
             (action:UITableViewRowAction, indexPath:IndexPath) in
             
-            self.tableView.setEditing(false, animated: true)
+            self.performSegue(withIdentifier: Storyboard.editPlayerSegueId, sender: self.tableView.cellForRow(at: indexPath))
         }
         edit.backgroundColor = getColor(withLabelText: "\u{2710}", textColor: .white, bgColor: .lightGray, height: tableView.cellForRow(at: indexPath)!.bounds.height)
 
@@ -227,15 +228,29 @@ extension SignupDayTableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if Storyboard.editPlayerSegueId == segue.identifier {
+            let editVC = segue.destination as! EditPlayerViewController
+            editVC.modalPresentationStyle = .popover
+            editVC.popoverPresentationController?.delegate = self
+            
+            let playerCell = sender as! PlayerTableViewCell
+            
+            if let anchor = playerCell.numChukkarsLabel {
+                editVC.popoverPresentationController?.sourceView = anchor
+            }
+            
+            editVC.numChukkars = playerCell.player?.numChukkars
+        }
     }
-    */
+    
 
     
     private func createImage(withView view: UIView) -> UIImage {
@@ -263,5 +278,20 @@ extension SignupDayTableViewController {
 extension SignupDayTableViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateHeaderView()
+    }
+}
+
+
+extension SignupDayTableViewController {
+    //MARK - UIPopoverPresentationControllerDelegate
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+        }
     }
 }

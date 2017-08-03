@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F19F49E1EFAFC8D009D19C6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F19F49D1EFAFC8D009D19C6 /* Player.swift */; };
 		6F19F4A01EFAFD1D009D19C6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F19F49F1EFAFD1D009D19C6 /* Day.swift */; };
+		6F3FC19A1F33A50100FB6CA0 /* EditPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3FC1991F33A50100FB6CA0 /* EditPlayerViewController.swift */; };
 		6F4948401EF0CFF80011EB82 /* SignupDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49483F1EF0CFF80011EB82 /* SignupDayViewController.swift */; };
 		6F63DAB01EFCA9A500C90678 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAAF1EFCA9A500C90678 /* PlayerTableViewCell.swift */; };
 		6F63DAB21EFDA7F300C90678 /* ImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB11EFDA7F300C90678 /* ImageHeaderView.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		6F19F49D1EFAFC8D009D19C6 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		6F19F49F1EFAFD1D009D19C6 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		6F3FC1991F33A50100FB6CA0 /* EditPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPlayerViewController.swift; sourceTree = "<group>"; };
 		6F49483F1EF0CFF80011EB82 /* SignupDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupDayViewController.swift; sourceTree = "<group>"; };
 		6F63DAAF1EFCA9A500C90678 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		6F63DAB11EFDA7F300C90678 /* ImageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHeaderView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				6FF400A91F1EDF70006BE442 /* CircularSliderView.swift */,
 				6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */,
 				6FF9D72F1F16EF2C00EF01C2 /* AddPlayerViewController.swift */,
+				6F3FC1991F33A50100FB6CA0 /* EditPlayerViewController.swift */,
 				6F63DAB11EFDA7F300C90678 /* ImageHeaderView.swift */,
 				6F63DAAF1EFCA9A500C90678 /* PlayerTableViewCell.swift */,
 				6FF9D2C81EF070F000AC507C /* Constants.swift */,
@@ -268,6 +271,7 @@
 			files = (
 				6F63DAB01EFCA9A500C90678 /* PlayerTableViewCell.swift in Sources */,
 				6FF9D7301F16EF2C00EF01C2 /* AddPlayerViewController.swift in Sources */,
+				6F3FC19A1F33A50100FB6CA0 /* EditPlayerViewController.swift in Sources */,
 				6FD1F8D61EE88DDF005D3C2D /* MainViewController.swift in Sources */,
 				6FF400A81F1D9C0D006BE442 /* CircularSlider.swift in Sources */,
 				6FD1F8D41EE88DDF005D3C2D /* AppDelegate.swift in Sources */,

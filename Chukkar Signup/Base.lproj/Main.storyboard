@@ -161,6 +161,54 @@
             </objects>
             <point key="canvasLocation" x="828" y="827.13643178410803"/>
         </scene>
+        <!--Edit Player View Controller-->
+        <scene sceneID="qOT-lG-wDf">
+            <objects>
+                <viewController storyboardIdentifier="EditPlayerViewController" id="lXa-xU-WzD" customClass="EditPlayerViewController" customModule="Chukkar_Signup" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jE0-wb-i2L"/>
+                        <viewControllerLayoutGuide type="bottom" id="MO4-V1-SMy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="16k-sA-hYE">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="275"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7d-De-9K6" customClass="CircularSliderView" customModule="Chukkar_Signup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="231"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4j-h8-Dfa">
+                                <rect key="frame" x="0.0" y="231" width="200" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="stop" id="2sx-Y2-RNC"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GEa-KI-OP1"/>
+                                    <barButtonItem systemItem="compose" id="YKC-pI-Zvb"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O4j-h8-Dfa" firstAttribute="top" secondItem="d7d-De-9K6" secondAttribute="bottom" id="2m7-9R-WmJ"/>
+                            <constraint firstItem="d7d-De-9K6" firstAttribute="leading" secondItem="16k-sA-hYE" secondAttribute="leading" id="7Nl-JR-sT7"/>
+                            <constraint firstItem="O4j-h8-Dfa" firstAttribute="trailing" secondItem="16k-sA-hYE" secondAttribute="trailing" id="Arm-T9-fvN"/>
+                            <constraint firstItem="O4j-h8-Dfa" firstAttribute="leading" secondItem="16k-sA-hYE" secondAttribute="leading" id="TRE-pB-2AP"/>
+                            <constraint firstItem="MO4-V1-SMy" firstAttribute="top" secondItem="O4j-h8-Dfa" secondAttribute="bottom" id="a9A-zz-gig"/>
+                            <constraint firstItem="d7d-De-9K6" firstAttribute="top" secondItem="jE0-wb-i2L" secondAttribute="bottom" id="bZq-dK-JYk"/>
+                            <constraint firstItem="d7d-De-9K6" firstAttribute="trailing" secondItem="16k-sA-hYE" secondAttribute="trailing" id="tRF-oX-MW7"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="275"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="275"/>
+                    <connections>
+                        <outlet property="chukkarsSlider" destination="d7d-De-9K6" id="pZq-lS-Bay"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqP-Id-iwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2275" y="282"/>
+        </scene>
         <!--Signup Day View Controller-->
         <scene sceneID="zwJ-ER-igZ">
             <objects>
@@ -368,6 +416,11 @@
                             <outlet property="delegate" destination="UXj-Ym-RcT" id="Y98-ZT-tCo"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="lXa-xU-WzD" kind="popoverPresentation" identifier="editPlayer" popoverAnchorView="lFU-qw-43y" id="4i4-eb-lAO">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3v-z8-LR7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
