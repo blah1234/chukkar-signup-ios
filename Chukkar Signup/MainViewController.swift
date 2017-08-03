@@ -48,7 +48,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let navCtrl = self.navigationController as! ObservedNavigationController
+//        let navCtrl = self.navigationController as! ObservedNavigationController
 //        navCtrl.observedDelegate = self
         
         view.bringSubview(toFront: activityIndicator)
