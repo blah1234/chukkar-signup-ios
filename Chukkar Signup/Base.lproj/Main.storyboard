@@ -180,9 +180,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4j-h8-Dfa">
                                 <rect key="frame" x="0.0" y="231" width="200" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="stop" id="2sx-Y2-RNC"/>
+                                    <barButtonItem systemItem="stop" id="2sx-Y2-RNC">
+                                        <connections>
+                                            <action selector="cancelEdit" destination="lXa-xU-WzD" id="vxn-iR-rDD"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GEa-KI-OP1"/>
-                                    <barButtonItem systemItem="compose" id="YKC-pI-Zvb"/>
+                                    <barButtonItem image="check" id="YKC-pI-Zvb"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -202,7 +206,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="200" height="275"/>
                     <connections>
+                        <outlet property="cancel" destination="2sx-Y2-RNC" id="tbp-K5-gPq"/>
                         <outlet property="chukkarsSlider" destination="d7d-De-9K6" id="pZq-lS-Bay"/>
+                        <outlet property="done" destination="YKC-pI-Zvb" id="3rj-dy-NnB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqP-Id-iwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,6 +452,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check" width="25" height="25"/>
         <image name="cover3" width="800" height="533"/>
         <image name="cover9" width="800" height="533"/>
     </resources>

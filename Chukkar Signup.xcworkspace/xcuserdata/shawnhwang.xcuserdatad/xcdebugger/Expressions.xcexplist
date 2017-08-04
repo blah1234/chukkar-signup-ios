@@ -3,13 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "EditPlayerViewController.(cancelEdit() -&gt; ()).(closure #1):EditPlayerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.popoverPresentationController?.delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SignupDayTableViewController.prepareForPopoverPresentation(UIPopoverPresentationController) -&gt; ():SignupDayTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIPopoverArrowDirection.unknown">
+               value = "popoverCtrl.arrowDirection">
             </PersistentString>
             <PersistentString
-               value = "popoverCtrl.arrowDirection">
+               value = "UIPopoverArrowDirection.unknown">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -25,21 +33,21 @@
          contextName = "AddPlayerViewController.viewDidLoad() -&gt; ():AddPlayerViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "backgroundImage">
+            </PersistentString>
+            <PersistentString
                value = "assetName">
             </PersistentString>
             <PersistentString
                value = "nameTextField.floatingLabel.frame">
             </PersistentString>
-            <PersistentString
-               value = "backgroundImage">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MainViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():MainViewController.swift">
+         contextName = "SignupDayTableViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:SignupDayTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.mPageContainer.viewControllers">
+               value = "cell.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -68,6 +76,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MainViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mPageContainer.viewControllers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[JVFloatLabeledTextField defaultFloatingLabelFont]:JVFloatLabeledTextField.m">
          <PersistentStrings>
             <PersistentString
@@ -83,14 +99,6 @@
          <PersistentStrings>
             <PersistentString
                value = "self.bounds">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "SignupDayTableViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:SignupDayTableViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "cell.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

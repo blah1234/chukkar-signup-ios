@@ -11,6 +11,8 @@ import UIKit
 class EditPlayerViewController: UIViewController {
 
     @IBOutlet weak var chukkarsSlider: CircularSliderView!
+    @IBOutlet weak var done: UIBarButtonItem!
+    @IBOutlet weak var cancel: UIBarButtonItem!
     
     var numChukkars: Int! {
         didSet {
@@ -53,7 +55,16 @@ class EditPlayerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    @IBAction func cancelEdit() {
+        //delegate is already set to nil by the time completion handler is executed
+        let popoverDelegate = self.popoverPresentationController?.delegate
+        
+        self.dismiss(animated: true) {
+            //https://developer.apple.com/documentation/uikit/uipopoverpresentationcontrollerdelegate/1622322-popoverpresentationcontrollerdid
+            //The presentation controller calls this method only in response to user actions. It does not call this method if you dismiss the popover programmatically.
+            popoverDelegate?.popoverPresentationControllerDidDismissPopover?(self.popoverPresentationController!)
+        }
+    }
         
 
     /*
