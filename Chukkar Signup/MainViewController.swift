@@ -258,16 +258,16 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         log.debug(json)
         
         if let allData = json as? [String: AnyObject] {
-            if let players = allData["_playersList"] as? [[String: AnyObject]] {
+            if let players = allData[Constants.Player.PLAYERS_LIST_FIELD] as? [[String: AnyObject]] {
                 var dataHelper = [Day: [Player]]()
                 
                 for player in players {
-                    let id = String(player["_id"] as! Int)
-                    let numChukkars = player["_numChukkars"] as! Int
-                    let requestDay = Day.valueOf(name: player["_requestDay"] as! String)
-                    let name = player["_name"] as! String
+                    let id = String(player[Constants.Player.ID_FIELD] as! Int)
+                    let numChukkars = player[Constants.Player.NUMCHUKKARS_FIELD] as! Int
+                    let requestDay = Day.valueOf(name: player[Constants.Player.REQUESTDAY_FIELD] as! String)
+                    let name = player[Constants.Player.NAME_FIELD] as! String
                     
-                    let dateStr = player["_createDate"] as! String
+                    let dateStr = player[Constants.Player.CREATEDATE_FIELD] as! String
                     let dateFormat = DateFormatter()
                     dateFormat.locale = Locale(identifier: "en_US")
                     dateFormat.dateFormat = "MMM dd, yyyy hh:mm:ss a"

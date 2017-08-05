@@ -180,9 +180,9 @@ class AddPlayerViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func addPlayersAsync() {
-        let bodyData = Constants.AddPlayerVeiwController.PLAYER_REQUESTDAY_FIELD + "=" + String(describing: selectedDay!)
-            + "&" + Constants.AddPlayerVeiwController.PLAYER_NAME_FIELD + "=" + nameTextField.text!
-            + "&" + Constants.AddPlayerVeiwController.PLAYER_NUMCHUKKARS_FIELD + "=" + String(chukkarsSlider.division)
+        let bodyData = Constants.Player.REQUESTDAY_FIELD + "=" + String(describing: selectedDay!)
+            + "&" + Constants.Player.NAME_FIELD + "=" + nameTextField.text!
+            + "&" + Constants.Player.NUMCHUKKARS_FIELD + "=" + String(chukkarsSlider.division)
         
         let requestURL: URL = URL(string: Constants.AddPlayerVeiwController.ADD_PLAYER_URL)!
         var urlRequest: URLRequest = URLRequest(url: requestURL)

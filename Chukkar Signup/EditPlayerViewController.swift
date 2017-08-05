@@ -11,13 +11,11 @@ import UIKit
 class EditPlayerViewController: UIViewController {
 
     @IBOutlet weak var chukkarsSlider: CircularSliderView!
-    @IBOutlet weak var done: UIBarButtonItem!
-    @IBOutlet weak var cancel: UIBarButtonItem!
     
-    var numChukkars: Int! {
+    var player: Player! {
         didSet {
             if let slider = chukkarsSlider {
-                slider.division = numChukkars
+                slider.division = player.numChukkars
             }
         }
     }
@@ -30,7 +28,7 @@ class EditPlayerViewController: UIViewController {
         chukkarsSlider.startColor = chukkarsSlider.tintColor
         chukkarsSlider.endColor = chukkarsSlider.tintColor
         chukkarsSlider.totalDivisions = 12
-        chukkarsSlider.division = numChukkars
+        chukkarsSlider.division = player.numChukkars
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,15 +53,57 @@ class EditPlayerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelEdit() {
+    @IBAction func dismissEdit() {
         //delegate is already set to nil by the time completion handler is executed
         let popoverDelegate = self.popoverPresentationController?.delegate
-        
+       
         self.dismiss(animated: true) {
             //https://developer.apple.com/documentation/uikit/uipopoverpresentationcontrollerdelegate/1622322-popoverpresentationcontrollerdid
             //The presentation controller calls this method only in response to user actions. It does not call this method if you dismiss the popover programmatically.
             popoverDelegate?.popoverPresentationControllerDidDismissPopover?(self.popoverPresentationController!)
         }
+    }
+    
+    @IBAction func editChukkarsAsync() {
+        let bodyData = Constants.Player.ID_FIELD + "=" + player!.id!
+            + "&" + Constants.Player.NUMCHUKKARS_FIELD + "=" + String(chukkarsSlider.division)
+        
+        let requestURL: URL = URL(string: Constants.EditPlayerViewController.EDIT_PLAYER_URL)!
+        var urlRequest: URLRequest = URLRequest(url: requestURL)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = bodyData.data(using: .utf8)
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) -> Void in
+            
+            //because we're using the shared URLSession, the completion handler is NOT running on the main dispatch queue!
+            let httpResponse = response as! HTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            
+            if(statusCode == 200) {
+                
+                DispatchQueue.main.async {
+                    do {
+                        let responseJSON = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                        log.debug(responseJSON)
+                        self.dismissEdit()
+                    } catch {
+                        if let str = String.init(data: data!, encoding: .utf8) {
+                            let responseJSON = str
+                            log.debug(responseJSON)
+                            self.dismissEdit()
+                        } else {
+                            log.error("Error with parsing response data: \(data)")
+                        }
+                    }
+                    
+//                    self.loading.stopAnimating()
+                }
+            }
+        }
+        
+        task.resume()
     }
         
 

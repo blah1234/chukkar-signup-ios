@@ -27,10 +27,21 @@ struct Constants {
         static let BANNER_IMAGE_COUNT = 13
     }
     
+    struct Player {
+        static let PLAYERS_LIST_FIELD = "_playersList"
+        
+        static let ID_FIELD = "_id"
+        static let NAME_FIELD = "_name"
+        static let REQUESTDAY_FIELD = "_requestDay"
+        static let NUMCHUKKARS_FIELD = "_numChukkars"
+        static let CREATEDATE_FIELD = "_createDate"
+    }
+    
     struct AddPlayerVeiwController {
         static let ADD_PLAYER_URL = MainViewController.BASE_URL + "/signup/json/addPlayer"
-        static let PLAYER_NUMCHUKKARS_FIELD = "_numChukkars"
-        static let PLAYER_NAME_FIELD = "_name"
-        static let PLAYER_REQUESTDAY_FIELD = "_requestDay"
+    }
+    
+    struct EditPlayerViewController {
+        static let EDIT_PLAYER_URL = MainViewController.BASE_URL + "/signup/json/editChukkars"
     }
 }

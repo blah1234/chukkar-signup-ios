@@ -247,7 +247,7 @@ extension SignupDayTableViewController {
                 editVC.popoverPresentationController?.sourceView = anchor
             }
             
-            editVC.numChukkars = playerCell.player?.numChukkars
+            editVC.player = playerCell.player
         }
     }
     
