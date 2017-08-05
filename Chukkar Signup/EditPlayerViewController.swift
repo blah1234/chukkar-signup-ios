@@ -86,24 +86,25 @@ class EditPlayerViewController: UIViewController {
                 DispatchQueue.main.async {
                     do {
                         let responseJSON = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                        log.debug(responseJSON)
-                        self.dismissEdit()
+                        self.sendNotification(withJsonPayload: responseJSON)
                     } catch {
                         if let str = String.init(data: data!, encoding: .utf8) {
-                            let responseJSON = str
-                            log.debug(responseJSON)
-                            self.dismissEdit()
+                            self.sendNotification(withJsonPayload: str)
                         } else {
                             log.error("Error with parsing response data: \(data)")
                         }
                     }
-                    
-//                    self.loading.stopAnimating()
                 }
             }
         }
         
         task.resume()
+        self.dismissEdit()
+    }
+    
+    private func sendNotification(withJsonPayload json: Any) {
+        let dataDict = [Constants.Data.CONTENT_KEY: json]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.EditPlayerViewController.EDIT_PLAYER_CHUKKARS_SUCCESS_KEY), object: self, userInfo: dataDict)
     }
         
 

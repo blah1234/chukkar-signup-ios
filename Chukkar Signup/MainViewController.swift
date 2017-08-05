@@ -72,6 +72,10 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         
         
         loadActiveDaysAsync()
+        
+        
+        // listen for edit player notification key
+        NotificationCenter.default.addObserver(self, selector: #selector(handleEditPlayerChukkarsSuccess(_:)), name: NSNotification.Name(rawValue: Constants.EditPlayerViewController.EDIT_PLAYER_CHUKKARS_SUCCESS_KEY), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,10 +85,15 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         addStatusBarBlurEffect()
         
         
+        //allow swipe to edit table cells
         //https://stackoverflow.com/a/38927196
         if let gestureView = mPageContainer.view.subviews.first as? UIScrollView {
             gestureView.canCancelContentTouches = false
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -136,7 +145,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     private func getPreviousWebAppResetDate() -> Date? {
         let userDefaults = UserDefaults.standard
         
-        let resetDate = userDefaults.string(forKey: Constants.MainViewController.RESET_DATE_KEY)
+        let resetDate = userDefaults.string(forKey: Constants.Data.RESET_DATE_KEY)
         
         if resetDate != nil {
             let dateFormat = DateFormatter()
@@ -159,14 +168,14 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     
     private func writeResetDate(_ resetDate: String) {
         let userDefaults = UserDefaults.standard
-        userDefaults.set(resetDate, forKey: Constants.MainViewController.RESET_DATE_KEY)
+        userDefaults.set(resetDate, forKey: Constants.Data.RESET_DATE_KEY)
         userDefaults.synchronize()
     }
     
     private func resetAllCachedData() {
         //also erase the active days data
         let userDefaults = UserDefaults.standard
-        userDefaults.removeObject(forKey: Constants.MainViewController.ACTIVE_DAYS_KEY)
+        userDefaults.removeObject(forKey: Constants.Data.ACTIVE_DAYS_KEY)
     
         //------------
     
@@ -175,8 +184,8 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     
     private func resetCachedPlayerSignups() {
         let userDefaults = UserDefaults.standard
-        userDefaults.removeObject(forKey: Constants.MainViewController.CONTENT_KEY)
-        userDefaults.removeObject(forKey: Constants.MainViewController.LAST_MODIFIED_KEY)
+        userDefaults.removeObject(forKey: Constants.Data.CONTENT_KEY)
+        userDefaults.removeObject(forKey: Constants.Data.LAST_MODIFIED_KEY)
         
         // Commit the edits!
         userDefaults.synchronize()
@@ -306,7 +315,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                 
             }
         } else if let dataStr = json as? String {
-            if Constants.MainViewController.SIGNUP_CLOSED == dataStr {
+            if Constants.Data.SIGNUP_CLOSED == dataStr {
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     var title: String? = nil
@@ -323,6 +332,12 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                     self.present(alert, animated: true, completion: nil)
                 }
             }
+        }
+    }
+    
+    @objc private func handleEditPlayerChukkarsSuccess(_ notification: NSNotification) {
+        if let json = notification.userInfo?[Constants.Data.CONTENT_KEY] {
+            parsePlayers(json: json, scrollToBottom: false)
         }
     }
     

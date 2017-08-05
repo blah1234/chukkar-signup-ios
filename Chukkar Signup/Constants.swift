@@ -10,21 +10,23 @@ import Foundation
 
 struct Constants {
     
+    struct SignupDayViewController {
+        static let BANNER_IMAGE_COUNT = 13
+    }
+    
     struct MainViewController {
+        static let BASE_URL = "http://centralvalleypolo.appspot.com"
+        static let ACTIVE_DAYS_URL = BASE_URL + "/signup/json/getActiveDays"
+        static let GET_PLAYERS_URL = BASE_URL + "/signup/json/getAllPlayers"
+    }
+    
+    struct Data {
         static let RESET_DATE_KEY = "RESET_DATE_KEY"
         static let ACTIVE_DAYS_KEY = "ACTIVE_DAYS_KEY"
         static let CONTENT_KEY = "CONTENT_KEY"
         static let LAST_MODIFIED_KEY = "LAST_MODIFIED_KEY"
         
-        static let BASE_URL = "http://centralvalleypolo.appspot.com"
-        static let ACTIVE_DAYS_URL = BASE_URL + "/signup/json/getActiveDays"
-        static let GET_PLAYERS_URL = BASE_URL + "/signup/json/getAllPlayers"
-        
         static let SIGNUP_CLOSED = "!!!SIGNUP_CLOSED!!!"
-    }
-    
-    struct SignupDayViewController {
-        static let BANNER_IMAGE_COUNT = 13
     }
     
     struct Player {
@@ -43,5 +45,6 @@ struct Constants {
     
     struct EditPlayerViewController {
         static let EDIT_PLAYER_URL = MainViewController.BASE_URL + "/signup/json/editChukkars"
+        static let EDIT_PLAYER_CHUKKARS_SUCCESS_KEY = "com.defenestrate.chukkars.android.editPLayerChukkarsSuccess"
     }
 }
