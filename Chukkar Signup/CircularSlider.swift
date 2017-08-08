@@ -190,7 +190,6 @@ class CircularSlider: UIControl {
         textField.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: 0.2, tx: 0, ty: -translateY)
         textField.alpha = 0.1
 
-        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.11, initialSpringVelocity: 3.5, options: .curveEaseOut, animations: {
             self.textField.transform = CGAffineTransform.identity
             self.textField.alpha = 1.0
