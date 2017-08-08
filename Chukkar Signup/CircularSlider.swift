@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import CoreGraphics
 
 class CircularSlider: UIControl {
 
@@ -183,6 +184,17 @@ class CircularSlider: UIControl {
 
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         super.endTracking(touch, with: event)
+        
+        let translateY = self.bounds.height / 8.0
+        //scaleY = 0.2
+        textField.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: 0.2, tx: 0, ty: -translateY)
+        textField.alpha = 0.1
+
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.11, initialSpringVelocity: 3.5, options: .curveEaseOut, animations: {
+            self.textField.transform = CGAffineTransform.identity
+            self.textField.alpha = 1.0
+        }, completion: nil)
     }
 
     
