@@ -30,7 +30,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     private let tableHeaderViewCutaway: CGFloat = 40.0
     private var _imageId: Int?
     
-    var headerView: ImageHeaderVIew!
+    var headerView: ImageHeaderView!
     var headerMaskLayer: CAShapeLayer!
     
     struct Storyboard {
@@ -62,7 +62,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         }
         
         
-        headerView = tableView.tableHeaderView as! ImageHeaderVIew
+        headerView = tableView.tableHeaderView as! ImageHeaderView
         headerView.image = image
         headerView.title = "\(displayedDay!)"
         tableView.tableHeaderView = nil
