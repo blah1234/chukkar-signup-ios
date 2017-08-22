@@ -276,8 +276,14 @@ extension SignupDayTableViewController {
 
 
 extension SignupDayTableViewController {
+    //MARK - UIScrollViewDelegate
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateHeaderView()
+        
+        //parallax scrolling down
+        headerView.imageTop?.constant = max(0, (scrollView.contentInset.top + scrollView.contentOffset.y) / 2.0)
+        headerView.imageBottom?.constant = max(0, (scrollView.contentInset.top + scrollView.contentOffset.y) / 2.0)
     }
 }
 

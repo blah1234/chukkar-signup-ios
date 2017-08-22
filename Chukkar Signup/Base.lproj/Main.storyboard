@@ -367,6 +367,8 @@
                                 <constraint firstItem="dOX-qR-KZx" firstAttribute="leading" secondItem="X6V-F3-PzH" secondAttribute="leading" id="zo1-rT-IsD"/>
                             </constraints>
                             <connections>
+                                <outlet property="imageBottom" destination="qtd-Ec-GJ3" id="mgL-49-bSh"/>
+                                <outlet property="imageTop" destination="rmN-9y-tM0" id="lSK-5R-vW0"/>
                                 <outlet property="imageView" destination="dOX-qR-KZx" id="B1y-V1-1Nz"/>
                                 <outlet property="titleLabel" destination="lFU-qw-43y" id="KJ9-pv-ZTu"/>
                                 <outlet property="titleLabelBottom" destination="fWI-BY-jwN" id="NcF-wg-cuW"/>

@@ -12,6 +12,8 @@ class ImageHeaderView: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleLabelBottom: NSLayoutConstraint!
+    @IBOutlet weak var imageBottom: NSLayoutConstraint!
+    @IBOutlet weak var imageTop: NSLayoutConstraint!
     
     
     var image: UIImage? {
