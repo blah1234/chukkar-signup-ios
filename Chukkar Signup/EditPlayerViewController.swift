@@ -65,40 +65,46 @@ class EditPlayerViewController: UIViewController {
     }
     
     @IBAction func editChukkarsAsync() {
-        let bodyData = Constants.Player.ID_FIELD + "=" + player!.id!
-            + "&" + Constants.Player.NUMCHUKKARS_FIELD + "=" + String(chukkarsSlider.division)
+        let oldChukkars = player.numChukkars!
+        let newChukkars = chukkarsSlider.division!
         
-        let requestURL: URL = URL(string: Constants.EditPlayerViewController.EDIT_PLAYER_URL)!
-        var urlRequest: URLRequest = URLRequest(url: requestURL)
-        urlRequest.httpMethod = "POST"
-        urlRequest.httpBody = bodyData.data(using: .utf8)
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: urlRequest) {
-            (data, response, error) -> Void in
+        if newChukkars != oldChukkars {
+            let bodyData = Constants.Player.ID_FIELD + "=" + player!.id!
+                + "&" + Constants.Player.NUMCHUKKARS_FIELD + "=" + String(newChukkars)
             
-            //because we're using the shared URLSession, the completion handler is NOT running on the main dispatch queue!
-            let httpResponse = response as! HTTPURLResponse
-            let statusCode = httpResponse.statusCode
+            let requestURL: URL = URL(string: Constants.EditPlayerViewController.EDIT_PLAYER_URL)!
+            var urlRequest: URLRequest = URLRequest(url: requestURL)
+            urlRequest.httpMethod = "POST"
+            urlRequest.httpBody = bodyData.data(using: .utf8)
             
-            if(statusCode == 200) {
+            let session = URLSession.shared
+            let task = session.dataTask(with: urlRequest) {
+                (data, response, error) -> Void in
                 
-                DispatchQueue.main.async {
-                    do {
-                        let responseJSON = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                        self.sendNotification(withJsonPayload: responseJSON)
-                    } catch {
-                        if let str = String.init(data: data!, encoding: .utf8) {
-                            self.sendNotification(withJsonPayload: str)
-                        } else {
-                            log.error("Error with parsing response data: \(data)")
+                //because we're using the shared URLSession, the completion handler is NOT running on the main dispatch queue!
+                let httpResponse = response as! HTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                
+                if(statusCode == 200) {
+                    
+                    DispatchQueue.main.async {
+                        do {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                            self.sendNotification(withJsonPayload: responseJSON)
+                        } catch {
+                            if let str = String.init(data: data!, encoding: .utf8) {
+                                self.sendNotification(withJsonPayload: str)
+                            } else {
+                                log.error("Error with parsing response data: \(data)")
+                            }
                         }
                     }
                 }
             }
+            
+            task.resume()
         }
         
-        task.resume()
         self.dismissEdit()
     }
     
