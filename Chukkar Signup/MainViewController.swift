@@ -76,6 +76,9 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         
         // listen for edit player notification key
         NotificationCenter.default.addObserver(self, selector: #selector(handleEditPlayerChukkarsSuccess(_:)), name: NSNotification.Name(rawValue: Constants.EditPlayerViewController.EDIT_PLAYER_CHUKKARS_SUCCESS_KEY), object: nil)
+        
+        // listen for "pull to refresh"
+        NotificationCenter.default.addObserver(self, selector: #selector(loadActiveDaysAsync), name: NSNotification.Name(rawValue: Constants.MainViewController.PULL_TO_REFRESH_KEY), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -191,7 +194,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         userDefaults.synchronize()
     }
 
-    private func loadActiveDaysAsync() {
+    @objc private func loadActiveDaysAsync() {
         let requestURL: URL = URL(string: Constants.MainViewController.ACTIVE_DAYS_URL)!
         let urlRequest: URLRequest = URLRequest(url: requestURL)
         let session = URLSession.shared

@@ -29,6 +29,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     private var tableHeaderViewHeight: CGFloat!
     private let tableHeaderViewCutaway: CGFloat = 40.0
     private var _imageId: Int?
+    private var isRefreshRequested: Bool = false
     
     var headerView: ImageHeaderView!
     var headerMaskLayer: CAShapeLayer!
@@ -81,12 +82,35 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         
         updateHeaderView()
         
+        
+        
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(refresh(refreshControl:)), for: .valueChanged)
+
+        tableView.panGestureRecognizer.addTarget(self, action: #selector(onTableViewGestureRecognized))
+        tableView.refreshControl = rc
+        tableView.bringSubview(toFront: rc)
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    @objc private func onTableViewGestureRecognized() {
+        if isRefreshRequested && !tableView.isDragging {
+            tableView.refreshControl?.endRefreshing()
+            
+            //control then goes to scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
+        }
+    }
+    
+    @objc private func refresh(refreshControl: UIRefreshControl) {
+        isRefreshRequested = true;
+        
+        //control then goes to onTableViewGestureRecognized()
     }
     
     func updateHeaderView() {
@@ -97,6 +121,15 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         if tableView.contentOffset.y < -effectiveHeight {
             headerRect.origin.y = tableView.contentOffset.y
             headerRect.size.height = -tableView.contentOffset.y + tableHeaderViewCutaway/2
+            
+            
+            //make header image translucent, so RefreshControl is easier to see
+            let screenSize = UIScreen.main.bounds
+            var alpha = (screenSize.height/4.0 + tableView.contentOffset.y + effectiveHeight) / (screenSize.height/4.0)
+            alpha = max(0.15, alpha)
+            headerView.imageView.alpha = alpha
+        } else {
+            headerView.imageView.alpha = 1
         }
         
         headerView.frame = headerRect
@@ -149,7 +182,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         var id: Int
         
         repeat {
-            id = Utils.randomInt(min: 1, max: Constants.SignupDayViewController.BANNER_IMAGE_COUNT)
+            id = Utils.randomInt(min: 1, max: Constants.SignupDayTableViewController.BANNER_IMAGE_COUNT)
         } while SignupDayViewController.usedImages.contains(id)
         
         _imageId = id
@@ -163,6 +196,24 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
             let indexPath = IndexPath(row: players!.count - 1, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
+    }
+    
+    
+    //MARK - UIScrollViewDelegate
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if isRefreshRequested {
+            isRefreshRequested = false
+            NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.MainViewController.PULL_TO_REFRESH_KEY), object: self)
+        }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        updateHeaderView()
+        
+        //parallax scrolling down
+        headerView.imageTop?.constant = max(0, (scrollView.contentInset.top + scrollView.contentOffset.y) / 2.0)
+        headerView.imageBottom?.constant = max(0, (scrollView.contentInset.top + scrollView.contentOffset.y) / 2.0)
     }
 }
 
@@ -271,19 +322,6 @@ extension SignupDayTableViewController {
         label.backgroundColor = bgColor
         
         return UIColor(patternImage: createImage(withView: label))
-    }
-}
-
-
-extension SignupDayTableViewController {
-    //MARK - UIScrollViewDelegate
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        updateHeaderView()
-        
-        //parallax scrolling down
-        headerView.imageTop?.constant = max(0, (scrollView.contentInset.top + scrollView.contentOffset.y) / 2.0)
-        headerView.imageBottom?.constant = max(0, (scrollView.contentInset.top + scrollView.contentOffset.y) / 2.0)
     }
 }
 

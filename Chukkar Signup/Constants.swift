@@ -10,7 +10,7 @@ import Foundation
 
 struct Constants {
     
-    struct SignupDayViewController {
+    struct SignupDayTableViewController {
         static let BANNER_IMAGE_COUNT = 13
     }
     
@@ -18,6 +18,7 @@ struct Constants {
         static let BASE_URL = "http://centralvalleypolo.appspot.com"
         static let ACTIVE_DAYS_URL = BASE_URL + "/signup/json/getActiveDays"
         static let GET_PLAYERS_URL = BASE_URL + "/signup/json/getAllPlayers"
+        static let PULL_TO_REFRESH_KEY = "com.defenestrate.chukkars.android.pullToRefresh"
     }
     
     struct Data {

@@ -72,7 +72,7 @@ class SignupDayViewController: UIViewController, UITableViewDataSource {
         var id: Int
             
         repeat {
-            id = Utils.randomInt(min: 1, max: Constants.SignupDayViewController.BANNER_IMAGE_COUNT)
+            id = Utils.randomInt(min: 1, max: Constants.SignupDayTableViewController.BANNER_IMAGE_COUNT)
         } while SignupDayViewController.usedImages.contains(id)
         
         SignupDayViewController.usedImages.insert(id)
