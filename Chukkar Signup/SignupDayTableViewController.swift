@@ -86,8 +86,6 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         
         let rc = UIRefreshControl()
         rc.addTarget(self, action: #selector(refresh(refreshControl:)), for: .valueChanged)
-
-        tableView.panGestureRecognizer.addTarget(self, action: #selector(onTableViewGestureRecognized))
         tableView.refreshControl = rc
         tableView.bringSubview(toFront: rc)
         
@@ -99,18 +97,10 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    @objc private func onTableViewGestureRecognized() {
-        if isRefreshRequested && !tableView.isDragging {
-            tableView.refreshControl?.endRefreshing()
-            
-            //control then goes to scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
-        }
-    }
-    
     @objc private func refresh(refreshControl: UIRefreshControl) {
         isRefreshRequested = true;
         
-        //control then goes to onTableViewGestureRecognized()
+        //control then goes to scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
     }
     
     func updateHeaderView() {
@@ -202,7 +192,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     //MARK - UIScrollViewDelegate
     
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if isRefreshRequested {
+        if isRefreshRequested && !tableView.isDragging {
             isRefreshRequested = false
             NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.MainViewController.PULL_TO_REFRESH_KEY), object: self)
         }
