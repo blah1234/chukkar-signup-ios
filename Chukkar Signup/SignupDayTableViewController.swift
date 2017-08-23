@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupDayTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class SignupDayTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, EditPlayerViewControllerDelegate {
 
     var pageIndex: Int = 0
     var displayedDay: Day!
@@ -24,15 +24,16 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         }
     }
     
-    //MARK - Private
+    //MARK: - Private
     
     private var tableHeaderViewHeight: CGFloat!
     private let tableHeaderViewCutaway: CGFloat = 40.0
     private var _imageId: Int?
     private var isRefreshRequested: Bool = false
+    private var editChukkarsTask: URLSessionDataTask?
     
-    var headerView: ImageHeaderView!
-    var headerMaskLayer: CAShapeLayer!
+    private var headerView: ImageHeaderView!
+    private var headerMaskLayer: CAShapeLayer!
     
     struct Storyboard {
         static let editPlayerSegueId = "editPlayer"
@@ -188,8 +189,28 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         }
     }
     
+    private func createImage(withView view: UIView) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image!
+    }
     
-    //MARK - UIScrollViewDelegate
+    private func getColor(withLabelText text: String, textColor: UIColor, bgColor: UIColor, height: CGFloat) -> UIColor {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: height, height: height))
+        label.font = UIFont.boldSystemFont(ofSize: 35)
+        label.text = text
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = textColor
+        label.backgroundColor = bgColor
+        
+        return UIColor(patternImage: createImage(withView: label))
+    }
+    
+    
+    //MARK: - UIScrollViewDelegate
     
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if isRefreshRequested && !tableView.isDragging {
@@ -205,10 +226,8 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         headerView.imageTop?.constant = max(0, (scrollView.contentInset.top + scrollView.contentOffset.y) / 2.0)
         headerView.imageBottom?.constant = max(0, (scrollView.contentInset.top + scrollView.contentOffset.y) / 2.0)
     }
-}
 
-
-extension SignupDayTableViewController {
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -253,7 +272,13 @@ extension SignupDayTableViewController {
         return [edit]
     }
     
-
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        if editChukkarsTask != nil {
+            editChukkarsTask?.resume()
+            editChukkarsTask = nil
+        }
+    }
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -289,35 +314,22 @@ extension SignupDayTableViewController {
             }
             
             editVC.player = playerCell.player
+            editVC.delegate = self
         }
     }
     
-
     
-    private func createImage(withView view: UIView) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        view.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+    // MARK: - EditPlayerViewControllerDelegate
+    func onEditChukkarsRequested(task: URLSessionDataTask) {
+        editChukkarsTask = task
         
-        return image!
-    }
-    
-    private func getColor(withLabelText text: String, textColor: UIColor, bgColor: UIColor, height: CGFloat) -> UIColor {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: height, height: height))
-        label.font = UIFont.boldSystemFont(ofSize: 35)
-        label.text = text
-        label.textAlignment = NSTextAlignment.center
-        label.textColor = textColor
-        label.backgroundColor = bgColor
-        
-        return UIColor(patternImage: createImage(withView: label))
+        //control now goes to tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?)
     }
 }
 
 
 extension SignupDayTableViewController {
-    //MARK - UIPopoverPresentationControllerDelegate
+    //MARK: - UIPopoverPresentationControllerDelegate
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none

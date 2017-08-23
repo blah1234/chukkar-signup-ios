@@ -12,6 +12,7 @@ class EditPlayerViewController: UIViewController {
 
     @IBOutlet weak var chukkarsSlider: CircularSliderView!
     
+    var delegate: EditPlayerViewControllerDelegate?
     var player: Player! {
         didSet {
             if let slider = chukkarsSlider {
@@ -102,7 +103,7 @@ class EditPlayerViewController: UIViewController {
                 }
             }
             
-            task.resume()
+            delegate?.onEditChukkarsRequested(task: task)
         }
         
         self.dismissEdit()
@@ -124,4 +125,9 @@ class EditPlayerViewController: UIViewController {
     }
     */
 
+}
+
+
+protocol EditPlayerViewControllerDelegate {
+    func onEditChukkarsRequested(task: URLSessionDataTask)
 }
