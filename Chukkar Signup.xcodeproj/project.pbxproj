@@ -105,6 +105,7 @@
 		6FD1F8D21EE88DDF005D3C2D /* Chukkar Signup */ = {
 			isa = PBXGroup;
 			children = (
+				6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */,
 				6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */,
 				6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */,
 				6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */,
@@ -131,7 +132,6 @@
 				6FDD24E91F19A65800F1814D /* Chukkar-Signup-Bridging-Header.h */,
 				6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */,
 				6FD1F8DA1EE88DDF005D3C2D /* Assets.xcassets */,
-				6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */,
 				6FD1F8DF1EE88DDF005D3C2D /* Info.plist */,
 			);
 			name = "Supporting Files";

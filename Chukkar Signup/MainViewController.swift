@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import os.log
+import RevealingSplashView
 
 
 class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -19,6 +20,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     @IBOutlet weak var mainContent: UIView!
     
 
+    private var splash: RevealingSplashView!
     private var blurEffectView: UIVisualEffectView!
     
     // The UIPageViewController
@@ -34,6 +36,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     private var mData: [Day: [Player]]?
     
     struct Storyboard {
+        static let logoInitialSize = 90
         static let addPlayerSegueId = "addPlayer"
         static let signupDayControllerId = "SignupDayTableViewController"
     }
@@ -53,6 +56,9 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         
         view.bringSubview(toFront: activityIndicator)
         activityIndicator.startAnimating()
+        
+        //put splash on top of the activityIndicator
+        initSplash()
         
         // Create the page container
         mPageContainer = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -84,8 +90,9 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        blurEffectView?.removeFromSuperview()
-        addStatusBarBlurEffect()
+        //now handled in the completion block of the splash screen animation. See initSplash()
+//        blurEffectView?.removeFromSuperview()
+//        addStatusBarBlurEffect()
         
         
         //allow swipe to edit table cells
@@ -106,6 +113,29 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
 
 
     // MARK: - Methods
+    private func initSplash() {
+        let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+        let launchView = launchScreen!.view!
+        
+        //Initialize a revealing Splash with with the iconImage, the initial size and the background color
+        splash = RevealingSplashView(iconImage: #imageLiteral(resourceName: "logo"), iconInitialSize: CGSize(width: Storyboard.logoInitialSize, height: Storyboard.logoInitialSize), backgroundColor: launchView.backgroundColor!)
+        
+        splash.animationType = .heartBeat
+        splash.duration = 2
+        splash.delay = 0.9
+        splash.minimumBeats = 1
+        
+        //Adds the revealing splash view as a sub view
+        self.view.addSubview(splash)
+        
+        //Starts animation
+        splash.startAnimation() {
+            log.info("Splash Completed")
+            self.blurEffectView?.removeFromSuperview()
+            self.addStatusBarBlurEffect()
+        }
+    }
+    
     private func queryWebAppResetDate() {
         let requestURL: URL = URL(string: "http://malapropism2.appspot.com/signup/json/getResetDate")!
         let urlRequest: URLRequest = URLRequest(url: requestURL)
@@ -314,6 +344,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                     
                     
                     self.activityIndicator.stopAnimating()
+                    self.splash.finishHeartBeatAnimation()
                 }
                 
             }
@@ -321,6 +352,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
             if Constants.Data.SIGNUP_CLOSED == dataStr {
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
+                    self.splash.finishHeartBeatAnimation()
                     var title: String? = nil
                     
                     for currCtrl in self.mPageContainer.viewControllers ?? [] {

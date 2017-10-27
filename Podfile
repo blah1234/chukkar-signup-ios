@@ -8,5 +8,6 @@ target 'Chukkar Signup' do
   # Pods for Chukkar Signup
   pod 'JVFloatLabeledTextField'
   pod 'SwiftyBeaver'
+  pod 'RevealingSplashView'
 
 end
