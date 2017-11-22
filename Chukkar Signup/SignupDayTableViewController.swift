@@ -10,6 +10,7 @@ import UIKit
 
 class SignupDayTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, EditPlayerViewControllerDelegate {
 
+    var delegate: SignupDayTableViewControllerDelegate?
     var pageIndex: Int = 0
     var displayedDay: Day!
     var image: UIImage?
@@ -114,7 +115,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     }
     
     @objc private func requestAddPlayerSegue() {
-        NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.MainViewController.ADD_NEW_PLAYER_KEY), object: self)
+        delegate?.segueToAddPlayer()
     }
     
     func updateHeaderView() {
@@ -228,7 +229,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if isRefreshRequested && !tableView.isDragging {
             isRefreshRequested = false
-            NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.MainViewController.PULL_TO_REFRESH_KEY), object: self)
+            delegate?.refreshSignups()
         }
     }
     
@@ -363,4 +364,10 @@ extension SignupDayTableViewController {
             tableView.setEditing(false, animated: true)
         }
     }
+}
+
+
+protocol SignupDayTableViewControllerDelegate {
+    func refreshSignups()
+    func segueToAddPlayer()
 }

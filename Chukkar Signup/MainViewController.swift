@@ -12,7 +12,7 @@ import os.log
 import RevealingSplashView
 
 
-class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, SignupDayTableViewControllerDelegate {
 
     // The custom UIPageControl
     @IBOutlet weak var pageControl: UIPageControl!
@@ -82,12 +82,6 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         
         // listen for edit player notification key
         NotificationCenter.default.addObserver(self, selector: #selector(handleEditPlayerChukkarsSuccess(_:)), name: NSNotification.Name(rawValue: Constants.EditPlayerViewController.EDIT_PLAYER_CHUKKARS_SUCCESS_KEY), object: nil)
-        
-        // listen for "pull to refresh"
-        NotificationCenter.default.addObserver(self, selector: #selector(loadActiveDaysAsync), name: NSNotification.Name(rawValue: Constants.MainViewController.PULL_TO_REFRESH_KEY), object: nil)
-        
-        // listen for "add new player"
-        NotificationCenter.default.addObserver(self, selector: #selector(performAddPlayerSegue), name: NSNotification.Name(rawValue: Constants.MainViewController.ADD_NEW_PLAYER_KEY), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -227,7 +221,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         userDefaults.synchronize()
     }
 
-    @objc private func loadActiveDaysAsync() {
+    private func loadActiveDaysAsync() {
         let requestURL: URL = URL(string: Constants.MainViewController.ACTIVE_DAYS_URL)!
         let urlRequest: URLRequest = URLRequest(url: requestURL)
         let session = URLSession.shared
@@ -379,16 +373,13 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         }
     }
     
-    @objc private func performAddPlayerSegue() {
-        self.performSegue(withIdentifier: Storyboard.addPlayerSegueId, sender: self)
-    }
-    
     private func createViewControllerAtIndex(_ index: NSInteger) -> SignupDayTableViewController {
         // Create a new view controller and pass suitable data.
         let signupDayViewController = self.storyboard?.instantiateViewController(withIdentifier: Storyboard.signupDayControllerId) as! SignupDayTableViewController
         signupDayViewController.displayedDay = mDays[index]
         signupDayViewController.pageIndex = index
         signupDayViewController.players = mData?[mDays[index]]
+        signupDayViewController.delegate = self
         
         return signupDayViewController
     }
@@ -486,6 +477,16 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                 pageControl.currentPage = index
             }
         }
+    }
+    
+    
+    // MARK: - SignupDayTableViewController delegate
+    func refreshSignups() {
+        loadActiveDaysAsync()
+    }
+    
+    func segueToAddPlayer() {
+        performSegue(withIdentifier: Storyboard.addPlayerSegueId, sender: self)
     }
     
     
