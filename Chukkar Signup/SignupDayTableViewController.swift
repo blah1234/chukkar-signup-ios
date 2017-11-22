@@ -90,6 +90,15 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         tableView.refreshControl = rc
         tableView.bringSubview(toFront: rc)
         
+        
+        
+        //empty view
+        let emptyView = EmptySignupView()
+        emptyView.offsetY = tableHeaderViewCutaway
+        emptyView.button.addTarget(self, action: #selector(requestAddPlayerSegue), for: .touchUpInside)
+        tableView.backgroundView = emptyView
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -102,6 +111,10 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         isRefreshRequested = true;
         
         //control then goes to scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
+    }
+    
+    @objc private func requestAddPlayerSegue() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.MainViewController.ADD_NEW_PLAYER_KEY), object: self)
     }
     
     func updateHeaderView() {
@@ -235,7 +248,17 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (players?.count) ?? 0
+        let numRows = (players?.count) ?? 0
+        
+        if(numRows == 0) {
+            tableView.separatorStyle = .none
+            tableView.backgroundView?.isHidden = false
+        } else {
+            tableView.separatorStyle = .singleLine
+            tableView.backgroundView?.isHidden = true
+        }
+        
+        return numRows
     }
 
     

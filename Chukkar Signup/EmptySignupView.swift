@@ -10,16 +10,22 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class EmptySignupView: UIButton {
+class EmptySignupView: UIView {
     
     @IBOutlet var button: UIButton!
-    var paddingTop: CGFloat? {
+    
+    var offsetY: CGFloat? {
         didSet {
-//            button?.contentEdgeInsets = UIEdgeInsetsMake(paddingTop!, 0, 0, 0)
-//            button?.frame = button!.frame.offsetBy(dx: 0, dy: paddingTop!)
-//            button?.frame = bounds.insetBy(dx: 0, dy: 1)
+            updateButtonFrame()
         }
     }
+    
+    override var frame: CGRect {
+        didSet {
+            updateButtonFrame()
+        }
+    }
+    
  
     
     override init(frame: CGRect) {
@@ -36,18 +42,11 @@ class EmptySignupView: UIButton {
     
     
     private func setup() {
-        button = loadViewFromNib() as! UIButton!
-        button.frame = bounds
-        
-        if let top = paddingTop {
-//            button.contentEdgeInsets = UIEdgeInsetsMake(top, 0, 0, 0)
-//            button.frame = button.frame.offsetBy(dx: 0, dy: top)
-//            button.frame = bounds.insetBy(dx: 0, dy: paddingTop!)
-        }
-        
+        button = loadViewFromNib() as! UIButton
         button.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         
         addSubview(button)
+        updateButtonFrame()
     }
     
     private func loadViewFromNib() -> UIView! {
@@ -56,5 +55,9 @@ class EmptySignupView: UIButton {
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIButton
         
         return view
+    }
+    
+    private func updateButtonFrame() {
+        button?.frame = CGRect(x: 0, y: -self.frame.origin.y + (offsetY ?? 0), width: self.bounds.width, height: button.intrinsicContentSize.height)
     }
 }
