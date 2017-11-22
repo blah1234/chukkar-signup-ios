@@ -85,6 +85,9 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         
         // listen for "pull to refresh"
         NotificationCenter.default.addObserver(self, selector: #selector(loadActiveDaysAsync), name: NSNotification.Name(rawValue: Constants.MainViewController.PULL_TO_REFRESH_KEY), object: nil)
+        
+        // listen for "add new player"
+        NotificationCenter.default.addObserver(self, selector: #selector(performAddPlayerSegue), name: NSNotification.Name(rawValue: Constants.MainViewController.ADD_NEW_PLAYER_KEY), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -374,6 +377,10 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         if let json = notification.userInfo?[Constants.Data.CONTENT_KEY] {
             parsePlayers(json: json, scrollToBottom: false)
         }
+    }
+    
+    @objc private func performAddPlayerSegue() {
+        self.performSegue(withIdentifier: Storyboard.addPlayerSegueId, sender: self)
     }
     
     private func createViewControllerAtIndex(_ index: NSInteger) -> SignupDayTableViewController {

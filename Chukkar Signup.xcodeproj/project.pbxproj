@@ -16,6 +16,8 @@
 		6F63DAB41EFDAAD100C90678 /* SignupDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */; };
 		6F63DAB61EFDACCE00C90678 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB51EFDACCE00C90678 /* Utils.swift */; };
 		6F63DAD21EFDF3FF00C90678 /* ObservedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */; };
+		6FAA29B41FC3BFE400FE75E4 /* EmptySignupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FAA29B31FC3BFE400FE75E4 /* EmptySignupView.xib */; };
+		6FAA29B61FC3C00200FE75E4 /* EmptySignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */; };
 		6FD1F8D41EE88DDF005D3C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */; };
 		6FD1F8D61EE88DDF005D3C2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */; };
 		6FD1F8D91EE88DDF005D3C2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupDayTableViewController.swift; sourceTree = "<group>"; };
 		6F63DAB51EFDACCE00C90678 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservedNavigationController.swift; sourceTree = "<group>"; };
+		6FAA29B31FC3BFE400FE75E4 /* EmptySignupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptySignupView.xib; sourceTree = "<group>"; };
+		6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySignupView.swift; sourceTree = "<group>"; };
 		6FD1F8D01EE88DDF005D3C2D /* Chukkar Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chukkar Signup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			children = (
 				6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */,
 				6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */,
+				6FAA29B31FC3BFE400FE75E4 /* EmptySignupView.xib */,
+				6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */,
 				6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */,
 				6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */,
 				6FF400A71F1D9C0C006BE442 /* CircularSlider.swift */,
@@ -208,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FAA29B41FC3BFE400FE75E4 /* EmptySignupView.xib in Resources */,
 				6FD1F8DE1EE88DDF005D3C2D /* LaunchScreen.storyboard in Resources */,
 				6FD1F8DB1EE88DDF005D3C2D /* Assets.xcassets in Resources */,
 				6FD1F8D91EE88DDF005D3C2D /* Main.storyboard in Resources */,
@@ -281,6 +288,7 @@
 				6FF9D2C91EF070F000AC507C /* Constants.swift in Sources */,
 				6F63DAB61EFDACCE00C90678 /* Utils.swift in Sources */,
 				6F19F49E1EFAFC8D009D19C6 /* Player.swift in Sources */,
+				6FAA29B61FC3C00200FE75E4 /* EmptySignupView.swift in Sources */,
 				6F4948401EF0CFF80011EB82 /* SignupDayViewController.swift in Sources */,
 				6F63DAB21EFDA7F300C90678 /* ImageHeaderView.swift in Sources */,
 				6F63DAB41EFDAAD100C90678 /* SignupDayTableViewController.swift in Sources */,

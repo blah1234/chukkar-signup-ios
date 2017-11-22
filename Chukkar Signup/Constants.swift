@@ -19,6 +19,7 @@ struct Constants {
         static let ACTIVE_DAYS_URL = BASE_URL + "/signup/json/getActiveDays"
         static let GET_PLAYERS_URL = BASE_URL + "/signup/json/getAllPlayers"
         static let PULL_TO_REFRESH_KEY = "com.defenestrate.chukkars.android.pullToRefresh"
+        static let ADD_NEW_PLAYER_KEY = "com.defenestrate.chukkars.android.addNewPlayer"
     }
     
     struct Data {
