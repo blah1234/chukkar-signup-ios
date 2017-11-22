@@ -13,6 +13,7 @@ import UIKit
 class EmptySignupView: UIView {
     
     @IBOutlet var button: UIButton!
+    private var defaultAlpha: CGFloat!
     
     var offsetY: CGFloat? {
         didSet {
@@ -43,8 +44,9 @@ class EmptySignupView: UIView {
     
     private func setup() {
         button = loadViewFromNib() as! UIButton
+        defaultAlpha = button.alpha
         button.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-        
+
         addSubview(button)
         updateButtonFrame()
     }
@@ -59,5 +61,19 @@ class EmptySignupView: UIView {
     
     private func updateButtonFrame() {
         button?.frame = CGRect(x: 0, y: -self.frame.origin.y + (offsetY ?? 0), width: self.bounds.width, height: button.intrinsicContentSize.height)
+    }
+    
+    @IBAction func onButtonTouchDown(_ sender: Any) {
+        button.alpha = 0.1
+    }
+    
+    @IBAction func onButtonTouchDragOutside(_ sender: Any) {
+        button.alpha = defaultAlpha
+    }
+    
+    @IBAction func onButtonTouchUpInside(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.button?.alpha = self.defaultAlpha
+        }
     }
 }

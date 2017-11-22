@@ -15,7 +15,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <button opaque="NO" alpha="0.45000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" id="rZw-Ef-gWw">
+        <button opaque="NO" alpha="0.45000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" id="rZw-Ef-gWw">
             <rect key="frame" x="0.0" y="0.0" width="725" height="151"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
@@ -26,6 +26,11 @@
 Be the first</string>
                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
             </state>
+            <connections>
+                <action selector="onButtonTouchDown:" destination="-1" eventType="touchDown" id="go6-W8-8m9"/>
+                <action selector="onButtonTouchDragOutside:" destination="-1" eventType="touchDragOutside" id="e1k-ii-aEu"/>
+                <action selector="onButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="JnR-gP-rfA"/>
+            </connections>
             <point key="canvasLocation" x="-1035" y="-243"/>
         </button>
     </objects>
