@@ -88,6 +88,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6F671C081FC526D4007F6FBF /* IB Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */,
+				6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */,
+				6FAA29B31FC3BFE400FE75E4 /* EmptySignupView.xib */,
+			);
+			name = "IB Layouts";
+			sourceTree = "<group>";
+		};
 		6FD1F8C71EE88DDF005D3C2D = {
 			isa = PBXGroup;
 			children = (
@@ -109,10 +119,7 @@
 		6FD1F8D21EE88DDF005D3C2D /* Chukkar Signup */ = {
 			isa = PBXGroup;
 			children = (
-				6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */,
-				6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */,
-				6FAA29B31FC3BFE400FE75E4 /* EmptySignupView.xib */,
-				6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */,
+				6F671C081FC526D4007F6FBF /* IB Layouts */,
 				6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */,
 				6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */,
 				6FF400A71F1D9C0C006BE442 /* CircularSlider.swift */,
@@ -120,6 +127,7 @@
 				6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */,
 				6FF9D72F1F16EF2C00EF01C2 /* AddPlayerViewController.swift */,
 				6F3FC1991F33A50100FB6CA0 /* EditPlayerViewController.swift */,
+				6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */,
 				6F63DAB11EFDA7F300C90678 /* ImageHeaderView.swift */,
 				6F63DAAF1EFCA9A500C90678 /* PlayerTableViewCell.swift */,
 				6FF9D2C81EF070F000AC507C /* Constants.swift */,
