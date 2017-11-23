@@ -45,6 +45,6 @@ struct Constants {
     
     struct EditPlayerViewController {
         static let EDIT_PLAYER_URL = MainViewController.BASE_URL + "/signup/json/editChukkars"
-        static let EDIT_PLAYER_CHUKKARS_SUCCESS_KEY = "com.defenestrate.chukkars.android.editPLayerChukkarsSuccess"
+        static let EDIT_PLAYER_CHUKKARS_SUCCESS_KEY = "com.defenestrate.chukkars.ios.editPLayerChukkarsSuccess"
     }
 }

@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Chukkar Signup
+
+  Created by Shawn Hwang on 11/22/17.
+  Copyright © 2017 Bay Area Polo Clubs. All rights reserved.
+*/
+
+/* Alert Message: Signup closed to all additions or edits */
+alert-message-signupClosed = "Too late! Signup is closed.";
+
+/* Alert action: OK (positive) action */
+alert-action-ok = "OK";
+
+/* Navigation bar title for the AddPlayerViewController */
+add-player-title = "Sign Up";
+
+/* Day enum */
+day-mon = "monday";
+
+/* Day enum */
+day-tues = "tuesday";
+
+/* Day enum */
+day-wed = "wednesday";
+
+/* Day enum */
+day-thurs = "thursday";
+
+/* Day enum */
+day-fri = "friday";
+
+/* Day enum */
+day-sat = "saturday";
+
+/* Day enum */
+day-sun = "sunday";

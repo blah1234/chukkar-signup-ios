@@ -36,6 +36,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     private var mData: [Day: [Player]]?
     
     struct Storyboard {
+        static let launchScreenName = "LaunchScreen"
         static let logoInitialSize = 90
         static let addPlayerSegueId = "addPlayer"
         static let signupDayControllerId = "SignupDayTableViewController"
@@ -111,7 +112,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
 
     // MARK: - Methods
     private func initSplash() {
-        let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+        let launchScreen = UIStoryboard(name: Storyboard.launchScreenName, bundle: nil).instantiateInitialViewController()
         let launchView = launchScreen!.view!
         
         //Initialize a revealing Splash with with the iconImage, the initial size and the background color
@@ -293,8 +294,8 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     }
     
     private func parsePlayers(json: Any, scrollToBottom: Bool) {
-        //TODO: debug only. remove
-        log.debug(json)
+        //TODO: debug only
+//        log.debug(json)
         
         if let allData = json as? [String: AnyObject] {
             if let players = allData[Constants.Player.PLAYERS_LIST_FIELD] as? [[String: AnyObject]] {
@@ -358,8 +359,8 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                         }
                     }
                     
-                    let alert = UIAlertController(title: title, message: "Too late! Signup is closed.", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    let alert = UIAlertController(title: title, message: NSLocalizedString("alert-message-signupClosed", comment: "Alert Message: Signup closed to all additions or edits"), preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: NSLocalizedString("alert-action-ok", comment: "Alert action: OK (positive) action"), style: .default, handler: nil)
                     alert.addAction(defaultAction)
                     self.present(alert, animated: true, completion: nil)
                 }

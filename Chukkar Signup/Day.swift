@@ -21,31 +21,31 @@ enum Day: Int, Comparable, CustomStringConvertible {
     var description : String {
         switch self {
         // Use Internationalization, as appropriate.
-        case .MONDAY: return "MONDAY"
-        case .TUESDAY: return "TUESDAY"
-        case .WEDNESDAY: return "WEDNESDAY"
-        case .THURSDAY: return "THURSDAY"
-        case .FRIDAY: return "FRIDAY"
-        case .SATURDAY: return "SATURDAY"
-        case .SUNDAY: return "SUNDAY"
+        case .MONDAY: return NSLocalizedString("day-mon", comment: "day enum string value").uppercased()
+        case .TUESDAY: return NSLocalizedString("day-tues", comment: "day enum string value").uppercased()
+        case .WEDNESDAY: return NSLocalizedString("day-wed", comment: "day enum string value").uppercased()
+        case .THURSDAY: return NSLocalizedString("day-thurs", comment: "day enum string value").uppercased()
+        case .FRIDAY: return NSLocalizedString("day-fri", comment: "day enum string value").uppercased()
+        case .SATURDAY: return NSLocalizedString("day-sat", comment: "day enum string value").uppercased()
+        case .SUNDAY: return NSLocalizedString("day-sun", comment: "day enum string value").uppercased()
         }
     }
     
     public static func valueOf(name: String) -> Day {
         switch name.lowercased() {
-        case "monday":
+        case NSLocalizedString("day-mon", comment: "day enum string value").lowercased():
             return .MONDAY
-        case "tuesday":
+        case NSLocalizedString("day-tues", comment: "day enum string value").lowercased():
             return .TUESDAY
-        case "wednesday":
+        case NSLocalizedString("day-wed", comment: "day enum string value").lowercased():
             return .WEDNESDAY
-        case "thursday":
+        case NSLocalizedString("day-thurs", comment: "day enum string value").lowercased():
             return .THURSDAY
-        case "friday":
+        case NSLocalizedString("day-fri", comment: "day enum string value").lowercased():
             return .FRIDAY
-        case "saturday":
+        case NSLocalizedString("day-sat", comment: "day enum string value").lowercased():
             return .SATURDAY
-        case "sunday":
+        case NSLocalizedString("day-sun", comment: "day enum string value").lowercased():
             return .SUNDAY
         default:
             fatalError("unrecognized name: \(name)")

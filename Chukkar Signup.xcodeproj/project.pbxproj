@@ -17,6 +17,7 @@
 		6F63DAB61EFDACCE00C90678 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB51EFDACCE00C90678 /* Utils.swift */; };
 		6F63DAD21EFDF3FF00C90678 /* ObservedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */; };
 		6F9178101FC6445F008507C9 /* EmptySignupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9178121FC6445F008507C9 /* EmptySignupView.xib */; };
+		6F9178191FC67354008507C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F9178171FC67354008507C9 /* Localizable.strings */; };
 		6FAA29B61FC3C00200FE75E4 /* EmptySignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */; };
 		6FD1F8D41EE88DDF005D3C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */; };
 		6FD1F8D61EE88DDF005D3C2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */; };
@@ -43,6 +44,7 @@
 		6F9178111FC6445F008507C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptySignupView.xib; sourceTree = "<group>"; };
 		6F9178141FC6447E008507C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmptySignupView.strings; sourceTree = "<group>"; };
 		6F9178161FC64549008507C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		6F9178181FC67354008507C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySignupView.swift; sourceTree = "<group>"; };
 		6FD1F8D01EE88DDF005D3C2D /* Chukkar Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chukkar Signup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */,
 				6FD1F8DA1EE88DDF005D3C2D /* Assets.xcassets */,
 				6FD1F8DF1EE88DDF005D3C2D /* Info.plist */,
+				6F9178171FC67354008507C9 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F9178191FC67354008507C9 /* Localizable.strings in Resources */,
 				6F9178101FC6445F008507C9 /* EmptySignupView.xib in Resources */,
 				6FD1F8DE1EE88DDF005D3C2D /* LaunchScreen.storyboard in Resources */,
 				6FD1F8DB1EE88DDF005D3C2D /* Assets.xcassets in Resources */,
@@ -315,6 +319,14 @@
 				6F9178141FC6447E008507C9 /* en */,
 			);
 			name = EmptySignupView.xib;
+			sourceTree = "<group>";
+		};
+		6F9178171FC67354008507C9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F9178181FC67354008507C9 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */ = {

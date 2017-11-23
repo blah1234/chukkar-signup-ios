@@ -37,8 +37,7 @@ class AddPlayerViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //TODO: localize strings
-        self.navigationItem.title = "Sign Up"
+        self.navigationItem.title = NSLocalizedString("add-player-title", comment: "navigation bar title for this controller")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onSignupComplete))
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         
