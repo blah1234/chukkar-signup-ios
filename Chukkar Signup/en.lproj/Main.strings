@@ -1,0 +1,30 @@
+
+/* Add Player page: placeholder for the Name text field */
+"0Tj-ZC-lCf.placeholder" = "Name";
+
+/* Add Player page: label for the chukkars number selector widget */
+"A0e-Pn-IzU.text" = "Chukkars";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "CMo-gF-8V1"; */
+"CMo-gF-8V1.text" = "Name";
+
+/* Class = "UILabel"; text = "Chukkars"; ObjectID = "HZy-lP-VHs"; */
+"HZy-lP-VHs.text" = "Chukkars";
+
+/* Class = "UILabel"; text = "Chukkars"; ObjectID = "J4E-eg-LhC"; */
+"J4E-eg-LhC.text" = "Chukkars";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "SoF-Ja-see"; */
+"SoF-Ja-see.text" = "Date";
+
+/* Class = "UILabel"; text = "Day"; ObjectID = "UJw-re-5gH"; */
+"UJw-re-5gH.text" = "Day";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "guQ-gc-CjF"; */
+"guQ-gc-CjF.text" = "Name";
+
+/* Class = "UILabel"; text = "Day"; ObjectID = "lFU-qw-43y"; */
+"lFU-qw-43y.text" = "Day";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "wsC-QO-P4Z"; */
+"wsC-QO-P4Z.text" = "Date";

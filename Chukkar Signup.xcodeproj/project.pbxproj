@@ -16,7 +16,7 @@
 		6F63DAB41EFDAAD100C90678 /* SignupDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */; };
 		6F63DAB61EFDACCE00C90678 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAB51EFDACCE00C90678 /* Utils.swift */; };
 		6F63DAD21EFDF3FF00C90678 /* ObservedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */; };
-		6FAA29B41FC3BFE400FE75E4 /* EmptySignupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FAA29B31FC3BFE400FE75E4 /* EmptySignupView.xib */; };
+		6F9178101FC6445F008507C9 /* EmptySignupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9178121FC6445F008507C9 /* EmptySignupView.xib */; };
 		6FAA29B61FC3C00200FE75E4 /* EmptySignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */; };
 		6FD1F8D41EE88DDF005D3C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */; };
 		6FD1F8D61EE88DDF005D3C2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1F8D51EE88DDF005D3C2D /* MainViewController.swift */; };
@@ -40,7 +40,9 @@
 		6F63DAB31EFDAAD100C90678 /* SignupDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupDayTableViewController.swift; sourceTree = "<group>"; };
 		6F63DAB51EFDACCE00C90678 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6F63DAD11EFDF3FF00C90678 /* ObservedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservedNavigationController.swift; sourceTree = "<group>"; };
-		6FAA29B31FC3BFE400FE75E4 /* EmptySignupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptySignupView.xib; sourceTree = "<group>"; };
+		6F9178111FC6445F008507C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptySignupView.xib; sourceTree = "<group>"; };
+		6F9178141FC6447E008507C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmptySignupView.strings; sourceTree = "<group>"; };
+		6F9178161FC64549008507C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		6FAA29B51FC3C00200FE75E4 /* EmptySignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySignupView.swift; sourceTree = "<group>"; };
 		6FD1F8D01EE88DDF005D3C2D /* Chukkar Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chukkar Signup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD1F8D31EE88DDF005D3C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 			children = (
 				6FD1F8DC1EE88DDF005D3C2D /* LaunchScreen.storyboard */,
 				6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */,
-				6FAA29B31FC3BFE400FE75E4 /* EmptySignupView.xib */,
+				6F9178121FC6445F008507C9 /* EmptySignupView.xib */,
 			);
 			name = "IB Layouts";
 			sourceTree = "<group>";
@@ -222,7 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FAA29B41FC3BFE400FE75E4 /* EmptySignupView.xib in Resources */,
+				6F9178101FC6445F008507C9 /* EmptySignupView.xib in Resources */,
 				6FD1F8DE1EE88DDF005D3C2D /* LaunchScreen.storyboard in Resources */,
 				6FD1F8DB1EE88DDF005D3C2D /* Assets.xcassets in Resources */,
 				6FD1F8D91EE88DDF005D3C2D /* Main.storyboard in Resources */,
@@ -306,10 +308,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		6F9178121FC6445F008507C9 /* EmptySignupView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F9178111FC6445F008507C9 /* Base */,
+				6F9178141FC6447E008507C9 /* en */,
+			);
+			name = EmptySignupView.xib;
+			sourceTree = "<group>";
+		};
 		6FD1F8D71EE88DDF005D3C2D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6FD1F8D81EE88DDF005D3C2D /* Base */,
+				6F9178161FC64549008507C9 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
