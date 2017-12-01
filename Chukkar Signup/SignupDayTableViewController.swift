@@ -100,6 +100,10 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         tableView.backgroundView = emptyView
         
         
+        //tab
+        self.tabBarItem = UITabBarItem(title: nil, image: displayedDay.icon, tag: displayedDay.rawValue)
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

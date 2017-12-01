@@ -12,10 +12,9 @@ import os.log
 import RevealingSplashView
 
 
-class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, SignupDayTableViewControllerDelegate {
+class MainViewController: UIViewController, UIPageViewControllerDataSource, SignupDayTableViewControllerDelegate {
 
     // The custom UIPageControl
-    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mainContent: UIView!
     
@@ -23,15 +22,12 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     private var splash: RevealingSplashView!
     private var blurEffectView: UIVisualEffectView!
     
-    // The UIPageViewController
-    private var mPageContainer: UIPageViewController!
+    // The UITabBarController
+    private var mPageContainer: UITabBarController!
     
     // The pages it contains
     private var mDays = Array<Day>()
     
-    // Track the current index
-    private var mCurrentIndex: Int?
-    private var mPendingIndex: Int?
     
     private var mData: [Day: [Player]]?
     
@@ -62,19 +58,12 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         initSplash()
         
         // Create the page container
-        mPageContainer = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        mPageContainer.delegate = self
-        mPageContainer.dataSource = self
+        mPageContainer = UITabBarController()
         
         // Add it to the view
         mainContent.addSubview(mPageContainer.view)
         mPageContainer.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mPageContainer.view.frame = mainContent.bounds
-        
-        
-        
-        pageControl.currentPageIndicatorTintColor = UIColor.blue
-        pageControl.pageIndicatorTintColor = UIColor.lightGray
         
         
         
@@ -91,13 +80,6 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         //now handled in the completion block of the splash screen animation. See initSplash()
 //        blurEffectView?.removeFromSuperview()
 //        addStatusBarBlurEffect()
-        
-        
-        //allow swipe to edit table cells
-        //https://stackoverflow.com/a/38927196
-        if let gestureView = mPageContainer.view.subviews.first as? UIScrollView {
-            gestureView.canCancelContentTouches = false
-        }
     }
     
     deinit {
@@ -245,16 +227,16 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                         
                         self.mDays.sort()
                         
+                        var controllers = [SignupDayTableViewController]()
+                        
+                        for index in 0..<self.mDays.count {
+                            controllers.append(self.createViewControllerAtIndex(index))
+                        }
+                        
                         DispatchQueue.main.async {
                             SignupDayTableViewController.resetUsedImages()
-                            self.mPageContainer.setViewControllers([self.createViewControllerAtIndex(0)], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
-                            
-                            self.mCurrentIndex = 0
-                            
-                            // Configure our custom pageControl
-                            self.view.bringSubview(toFront: self.pageControl)
-                            self.pageControl.numberOfPages = self.mDays.count
-                            self.pageControl.currentPage = 0
+                            self.mPageContainer.setViewControllers(controllers, animated: true)
+                            self.mPageContainer.tabBar.isHidden = self.mDays.count == 1
                         }
                         
                         
@@ -329,13 +311,11 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                 DispatchQueue.main.async {
                     self.mData = dataHelper
                     
-                    for currCtrl in self.mPageContainer.viewControllers ?? [] {
-                        if let currSigupCtrl = currCtrl as? SignupDayTableViewController {
-                            currSigupCtrl.players = self.mData?[currSigupCtrl.displayedDay]
-                            
-                            if scrollToBottom {
-                                currSigupCtrl.scrollToBottom()
-                            }
+                    if let currSigupCtrl = self.mPageContainer.selectedViewController as? SignupDayTableViewController {
+                        currSigupCtrl.players = self.mData?[currSigupCtrl.displayedDay]
+                        
+                        if scrollToBottom {
+                            currSigupCtrl.scrollToBottom()
                         }
                     }
                     
@@ -353,10 +333,8 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                     self.splash.finishHeartBeatAnimation()
                     var title: String? = nil
                     
-                    for currCtrl in self.mPageContainer.viewControllers ?? [] {
-                        if let currSigupCtrl = currCtrl as? SignupDayTableViewController {
-                            title = String(describing: currSigupCtrl.displayedDay!)
-                        }
+                    if let currSigupCtrl = self.mPageContainer.selectedViewController as? SignupDayTableViewController {
+                        title = String(describing: currSigupCtrl.displayedDay!)
                     }
                     
                     let alert = UIAlertController(title: title, message: NSLocalizedString("alert-message-signupClosed", comment: "Alert Message: Signup closed to all additions or edits"), preferredStyle: .alert)
@@ -464,23 +442,6 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     }
     
     
-    // MARK: - UIPageViewController delegate
-    
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        let pageContent = pendingViewControllers.first! as! SignupDayTableViewController
-        mPendingIndex = pageContent.pageIndex
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed {
-            mCurrentIndex = mPendingIndex
-            if let index = mCurrentIndex {
-                pageControl.currentPage = index
-            }
-        }
-    }
-    
-    
     // MARK: - SignupDayTableViewController delegate
     func refreshSignups() {
         loadActiveDaysAsync()
@@ -504,16 +465,10 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
                         
             
-            if let index = mCurrentIndex {
-                for currCtrl in self.mPageContainer.viewControllers ?? [] {
-                    if let currSignupCtrl = currCtrl as? SignupDayTableViewController {
-                        if currSignupCtrl.pageIndex == index {
-                            if let addCtrl = segue.destination as? AddPlayerViewController {
-                                addCtrl.imageId = currSignupCtrl.imageId
-                                addCtrl.selectedDay = currSignupCtrl.displayedDay
-                            }
-                        }
-                    }
+            if let currSignupCtrl = mPageContainer.selectedViewController as? SignupDayTableViewController {
+                if let addCtrl = segue.destination as? AddPlayerViewController {
+                    addCtrl.imageId = currSignupCtrl.imageId
+                    addCtrl.selectedDay = currSignupCtrl.displayedDay
                 }
             }
         }

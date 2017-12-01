@@ -31,6 +31,18 @@ enum Day: Int, Comparable, CustomStringConvertible {
         }
     }
     
+    var icon : UIImage {
+        switch self {
+        case .MONDAY: return #imageLiteral(resourceName: "tab-mon")
+        case .TUESDAY: return #imageLiteral(resourceName: "tab-tues")
+        case .WEDNESDAY: return #imageLiteral(resourceName: "tab-wed")
+        case .THURSDAY: return #imageLiteral(resourceName: "tab-thurs")
+        case .FRIDAY: return #imageLiteral(resourceName: "tab-fri")
+        case .SATURDAY: return #imageLiteral(resourceName: "tab-sat")
+        case .SUNDAY: return #imageLiteral(resourceName: "tab-sun")
+        }
+    }
+    
     public static func valueOf(name: String) -> Day {
         switch name.lowercased() {
         case NSLocalizedString("day-mon", comment: "day enum string value").lowercased():
