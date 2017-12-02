@@ -102,6 +102,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         
         //tab
         self.tabBarItem = UITabBarItem(title: nil, image: displayedDay.icon, tag: displayedDay.rawValue)
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(5.5, 0, -5.5, 0)
         
         
 
