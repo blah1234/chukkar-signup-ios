@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tab-fri-33.png",
+      "filename" : "tab-fri-25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab-fri-66.png",
+      "filename" : "tab-fri-50.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab-fri-100.png",
+      "filename" : "tab-fri-75.png",
       "scale" : "3x"
     }
   ],

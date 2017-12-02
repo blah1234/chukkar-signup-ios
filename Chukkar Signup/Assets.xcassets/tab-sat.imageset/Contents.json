@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tab-sat-33.png",
+      "filename" : "tab-sat-25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab-sat-66.png",
+      "filename" : "tab-sat-50.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab-sat-100.png",
+      "filename" : "tab-sat-75.png",
       "scale" : "3x"
     }
   ],

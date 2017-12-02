@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tab-sun-33.png",
+      "filename" : "tab-sun-25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab-sun-66.png",
+      "filename" : "tab-sun-50.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab-sun-100.png",
+      "filename" : "tab-sun-75.png",
       "scale" : "3x"
     }
   ],
