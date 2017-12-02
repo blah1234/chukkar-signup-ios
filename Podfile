@@ -9,5 +9,6 @@ target 'Chukkar Signup' do
   pod 'JVFloatLabeledTextField'
   pod 'SwiftyBeaver'
   pod 'RevealingSplashView'
+  pod 'MaterialComponents/Buttons'
 
 end

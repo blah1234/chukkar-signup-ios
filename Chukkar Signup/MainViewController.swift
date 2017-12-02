@@ -10,17 +10,18 @@ import UIKit
 import Foundation
 import os.log
 import RevealingSplashView
+import MaterialComponents
 
 
 class MainViewController: UIViewController, UIPageViewControllerDataSource, SignupDayTableViewControllerDelegate {
 
     // The custom UIPageControl
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var mainContent: UIView!
     
 
     private var splash: RevealingSplashView!
     private var blurEffectView: UIVisualEffectView!
+    private var addPlayerButton: MDCFloatingButton!
     
     // The UITabBarController
     private var mPageContainer: UITabBarController!
@@ -54,16 +55,16 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
         view.bringSubview(toFront: activityIndicator)
         activityIndicator.startAnimating()
         
-        //put splash on top of the activityIndicator
-        initSplash()
-        
         // Create the page container
         mPageContainer = UITabBarController()
         
         // Add it to the view
-        mainContent.addSubview(mPageContainer.view)
+        view.addSubview(mPageContainer.view)
         mPageContainer.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mPageContainer.view.frame = mainContent.bounds
+        mPageContainer.view.frame = view.bounds
+        
+        //put splash on top of everything
+        initSplash()
         
         
         
@@ -113,6 +114,24 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
             log.info("Splash Completed")
             self.blurEffectView?.removeFromSuperview()
             self.addStatusBarBlurEffect()
+        }
+    }
+    
+    private func initAddPlayerButton() {
+        if addPlayerButton == nil {
+            addPlayerButton = MDCFloatingButton()
+            mPageContainer.view.addSubview(addPlayerButton)
+            
+            addPlayerButton.translatesAutoresizingMaskIntoConstraints = false
+            let horizConstraint = addPlayerButton.trailingAnchor.constraint(equalTo: mPageContainer.view.layoutMarginsGuide.trailingAnchor)
+            let vertConstraint = addPlayerButton.bottomAnchor.constraint(equalTo: mPageContainer.tabBar.topAnchor, constant: -mPageContainer.tabBar.layoutMargins.top)
+            mPageContainer.view.addConstraints([horizConstraint, vertConstraint])
+            
+            
+            let addImage = UIImage.imageFromSystemBarButton(.add, renderingMode: .alwaysTemplate)
+            addPlayerButton.setImage(addImage, for: .normal)
+            addPlayerButton.sizeToFit()
+            addPlayerButton.addTarget(self, action: #selector(segueToAddPlayer), for: .touchUpInside)
         }
     }
     
@@ -311,9 +330,13 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
                 DispatchQueue.main.async {
                     self.mData = dataHelper
                     
+                    for currCtrl in self.mPageContainer.viewControllers ?? [] {
+                        if let currSigupCtrl = currCtrl as? SignupDayTableViewController {
+                            currSigupCtrl.players = self.mData?[currSigupCtrl.displayedDay]
+                        }
+                    }
+                    
                     if let currSigupCtrl = self.mPageContainer.selectedViewController as? SignupDayTableViewController {
-                        currSigupCtrl.players = self.mData?[currSigupCtrl.displayedDay]
-                        
                         if scrollToBottom {
                             currSigupCtrl.scrollToBottom()
                         }
@@ -323,8 +346,8 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
                     
                     self.activityIndicator.stopAnimating()
                     self.splash.finishHeartBeatAnimation()
+                    self.initAddPlayerButton()
                 }
-                
             }
         } else if let dataStr = json as? String {
             if Constants.Data.SIGNUP_CLOSED == dataStr {
@@ -513,6 +536,32 @@ private extension UIView {
         layer.speed = 1.0
         layer.timeOffset = 0.0
         layer.beginTime = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+    }
+}
+
+
+private extension UIImage {
+    
+    class func imageFromSystemBarButton(_ systemItem: UIBarButtonSystemItem, renderingMode:UIImageRenderingMode = .automatic)-> UIImage {
+        
+        let tempItem = UIBarButtonItem(barButtonSystemItem: systemItem, target: nil, action: nil)
+        
+        // add to toolbar and render it
+        UIToolbar().setItems([tempItem], animated: false)
+        
+        // got image from real uibutton
+        let itemView = tempItem.value(forKey: "view") as! UIView
+        
+        for view in itemView.subviews {
+            if view is UIButton {
+                let button = view as! UIButton
+                let image = button.imageView!.image!
+                image.withRenderingMode(renderingMode)
+                return image
+            }
+        }
+        
+        return UIImage()
     }
 }
 

@@ -22,43 +22,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWO-pZ-lEB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWs-Il-9ae">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="z9B-tD-1ox"/>
-                                    <barButtonItem systemItem="add" id="1Vt-mj-CH3">
-                                        <connections>
-                                            <segue destination="cG6-B2-xwm" kind="show" identifier="addPlayer" id="qhg-Lu-PyQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Xj3-LA-p1e">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tWs-Il-9ae" firstAttribute="trailing" secondItem="bWO-pZ-lEB" secondAttribute="trailing" id="5He-NC-dcR"/>
-                            <constraint firstItem="bWO-pZ-lEB" firstAttribute="bottom" secondItem="tWs-Il-9ae" secondAttribute="top" id="5rE-qe-PsM"/>
-                            <constraint firstItem="bWO-pZ-lEB" firstAttribute="trailing" secondItem="J95-qZ-ieM" secondAttribute="trailing" id="CT0-bq-yd8"/>
-                            <constraint firstItem="bWO-pZ-lEB" firstAttribute="leading" secondItem="J95-qZ-ieM" secondAttribute="leading" id="ImR-XX-mXy"/>
-                            <constraint firstItem="tWs-Il-9ae" firstAttribute="leading" secondItem="bWO-pZ-lEB" secondAttribute="leading" id="KPs-sS-p9D"/>
                             <constraint firstItem="Xj3-LA-p1e" firstAttribute="centerY" secondItem="J95-qZ-ieM" secondAttribute="centerY" id="TKp-PU-JVc"/>
-                            <constraint firstItem="tWs-Il-9ae" firstAttribute="bottom" secondItem="NBP-og-cF0" secondAttribute="top" id="gJy-cc-iIJ"/>
-                            <constraint firstItem="tWs-Il-9ae" firstAttribute="top" secondItem="bWO-pZ-lEB" secondAttribute="bottom" id="hRY-XB-I07"/>
-                            <constraint firstItem="Xj3-LA-p1e" firstAttribute="centerX" secondItem="tWs-Il-9ae" secondAttribute="centerX" id="mhl-JP-Uic"/>
-                            <constraint firstItem="bWO-pZ-lEB" firstAttribute="top" secondItem="J95-qZ-ieM" secondAttribute="top" id="xkb-hw-Pd9"/>
+                            <constraint firstItem="Xj3-LA-p1e" firstAttribute="centerX" secondItem="J95-qZ-ieM" secondAttribute="centerX" id="xpL-Lk-bFf"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="DFJ-mz-Jgr"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Xj3-LA-p1e" id="fq4-RC-rex"/>
-                        <outlet property="mainContent" destination="bWO-pZ-lEB" id="Tbq-CV-YEH"/>
+                        <segue destination="cG6-B2-xwm" kind="show" identifier="addPlayer" id="vRa-Qj-0bj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wF6-P5-rdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,7 +214,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8oL-93-EIc" id="6Wg-pj-Ol0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chukkars" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0e-Pn-IzU">
@@ -371,7 +349,7 @@
                                 <rect key="frame" x="0.0" y="443" width="375" height="109"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6fZ-k7-8tK" id="DbU-92-t2h">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guQ-gc-CjF">
@@ -418,6 +396,7 @@
                             <outlet property="delegate" destination="UXj-Ym-RcT" id="Y98-ZT-tCo"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
                         <segue destination="lXa-xU-WzD" kind="popoverPresentation" identifier="editPlayer" popoverAnchorView="lFU-qw-43y" id="4i4-eb-lAO">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
