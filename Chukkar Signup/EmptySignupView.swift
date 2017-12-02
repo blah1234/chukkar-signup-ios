@@ -14,6 +14,7 @@ class EmptySignupView: UIView {
     
     @IBOutlet var button: UIButton!
     private var defaultAlpha: CGFloat!
+    private let alphaAnimDuration = 0.3
     
     var offsetY: CGFloat? {
         didSet {
@@ -64,16 +65,20 @@ class EmptySignupView: UIView {
     }
     
     @IBAction func onButtonTouchDown(_ sender: Any) {
-        button.alpha = 0.1
+        button?.alpha = 0.1
     }
     
     @IBAction func onButtonTouchDragOutside(_ sender: Any) {
-        button.alpha = defaultAlpha
+        UIView.animate(withDuration: alphaAnimDuration) {
+            self.button?.alpha = self.defaultAlpha
+        }
     }
     
     @IBAction func onButtonTouchUpInside(_ sender: Any) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.button?.alpha = self.defaultAlpha
+            UIView.animate(withDuration: self.alphaAnimDuration) {
+                self.button?.alpha = self.defaultAlpha
+            }
         }
     }
 }
