@@ -123,12 +123,13 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
             mPageContainer.view.addSubview(addPlayerButton)
             
             addPlayerButton.translatesAutoresizingMaskIntoConstraints = false
-            let horizConstraint = addPlayerButton.trailingAnchor.constraint(equalTo: mPageContainer.view.layoutMarginsGuide.trailingAnchor)
-            let vertConstraint = addPlayerButton.bottomAnchor.constraint(equalTo: mPageContainer.tabBar.topAnchor, constant: -mPageContainer.tabBar.layoutMargins.top)
+            let horizConstraint = addPlayerButton.trailingAnchor.constraint(equalTo: mPageContainer.view.trailingAnchor, constant: -mPageContainer.view.layoutMargins.right)
+            let vertConstraint = addPlayerButton.bottomAnchor.constraint(equalTo: mPageContainer.tabBar.topAnchor, constant: -mPageContainer.view.layoutMargins.right)
             mPageContainer.view.addConstraints([horizConstraint, vertConstraint])
             
             
-            let addImage = UIImage.imageFromSystemBarButton(.add, renderingMode: .alwaysTemplate)
+            var addImage = UIImage.imageFromSystemBarButton(.add, renderingMode: .alwaysTemplate)
+            addImage = addImage.maskWithColor(color: UIColor.white)
             addPlayerButton.setImage(addImage, for: .normal)
             addPlayerButton.sizeToFit()
             addPlayerButton.addTarget(self, action: #selector(segueToAddPlayer), for: .touchUpInside)
@@ -562,6 +563,25 @@ private extension UIImage {
         }
         
         return UIImage()
+    }
+    
+    
+    func maskWithColor(color: UIColor) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        
+        let rect = CGRect(origin: CGPoint.zero, size: size)
+        
+        color.setFill()
+        self.draw(in: rect)
+        
+        context.setBlendMode(.sourceIn)
+        context.fill(rect)
+        
+        let resultImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return resultImage
     }
 }
 
