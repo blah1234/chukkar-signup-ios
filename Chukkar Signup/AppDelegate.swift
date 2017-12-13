@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 import SwiftyBeaver
 let log = SwiftyBeaver.self
@@ -31,6 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // add the destinations to SwiftyBeaver
         log.addDestination(console)
+        
+        //------------
+        
+        //request auth to interact
+//        let center = UNUserNotificationCenter.current()
+//        center.requestAuthorization(options: [.badge]) { (granted, error) in
+//            //TODO: Enable or disable features based on authorization.
+//        }
         
         return true
     }
