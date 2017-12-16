@@ -137,28 +137,19 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
             addPlayerButton.sizeToFit()
             addPlayerButton.addTarget(self, action: #selector(segueToAddPlayer), for: .touchUpInside)
         } else {
-            let oldHorizConstraint = mFABHorizConstraint
-            let oldVertConstraint = mFABVertConstraint
+            if let horiz = mFABHorizConstraint {
+                NSLayoutConstraint.deactivate([horiz])
+            }
             
-            UIView.animate(withDuration: 0.5, animations: { self.addPlayerButton.alpha = 0 }, completion: {(finished: Bool) -> Void in
-                
-                if let horiz = oldHorizConstraint {
-                    NSLayoutConstraint.deactivate([horiz])
-                }
-                
-                if let vert = oldVertConstraint {
-                    NSLayoutConstraint.deactivate([vert])
-                }
-                
-                
-                self.mFABHorizConstraint = self.addPlayerButton.trailingAnchor.constraint(equalTo: self.mPageContainer.view.trailingAnchor, constant: -self.mPageContainer.view.layoutMargins.right)
-                self.mFABVertConstraint = self.addPlayerButton.bottomAnchor.constraint(equalTo: vertAnchor, constant: -self.mPageContainer.view.layoutMargins.right)
-                NSLayoutConstraint.activate([self.mFABHorizConstraint, self.mFABVertConstraint])
-                
-                UIView.animate(withDuration: 0.5) {
-                    self.addPlayerButton.alpha = 1
-                }
-            })
+            if let vert = mFABVertConstraint {
+                NSLayoutConstraint.deactivate([vert])
+            }
+            
+            mFABHorizConstraint = addPlayerButton.trailingAnchor.constraint(equalTo: mPageContainer.view.trailingAnchor, constant: -mPageContainer.view.layoutMargins.right)
+            mFABVertConstraint = addPlayerButton.bottomAnchor.constraint(equalTo: vertAnchor, constant: -mPageContainer.view.layoutMargins.right)
+            NSLayoutConstraint.activate([mFABHorizConstraint, mFABVertConstraint])
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: { self.view.layoutIfNeeded() }, completion: nil)
         }
     }
     
