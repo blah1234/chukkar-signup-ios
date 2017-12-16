@@ -48,5 +48,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>CFBundleDisplayName</key>
+	<string>HPPC Chukkars</string>
 </dict>
 </plist>
