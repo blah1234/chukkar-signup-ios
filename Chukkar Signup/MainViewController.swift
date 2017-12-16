@@ -31,6 +31,8 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
     
     
     private var mData: [Day: [Player]]?
+    private var mFABHorizConstraint: NSLayoutConstraint!
+    private var mFABVertConstraint: NSLayoutConstraint!
     
     struct Storyboard {
         static let launchScreenName = "LaunchScreen"
@@ -118,21 +120,45 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
     }
     
     private func initAddPlayerButton() {
+        let vertAnchor = mPageContainer.tabBar.isHidden ? mPageContainer.view.bottomAnchor : mPageContainer.tabBar.topAnchor
+        
         if addPlayerButton == nil {
             addPlayerButton = MDCFloatingButton()
             mPageContainer.view.addSubview(addPlayerButton)
             
             addPlayerButton.translatesAutoresizingMaskIntoConstraints = false
-            let horizConstraint = addPlayerButton.trailingAnchor.constraint(equalTo: mPageContainer.view.trailingAnchor, constant: -mPageContainer.view.layoutMargins.right)
-            let vertConstraint = addPlayerButton.bottomAnchor.constraint(equalTo: mPageContainer.tabBar.topAnchor, constant: -mPageContainer.view.layoutMargins.right)
-            mPageContainer.view.addConstraints([horizConstraint, vertConstraint])
-            
+            mFABHorizConstraint = addPlayerButton.trailingAnchor.constraint(equalTo: mPageContainer.view.trailingAnchor, constant: -mPageContainer.view.layoutMargins.right)
+            mFABVertConstraint = addPlayerButton.bottomAnchor.constraint(equalTo: vertAnchor, constant: -mPageContainer.view.layoutMargins.right)
+            NSLayoutConstraint.activate([mFABHorizConstraint, mFABVertConstraint])
             
             var addImage = UIImage.imageFromSystemBarButton(.add, renderingMode: .alwaysTemplate)
             addImage = addImage.maskWithColor(color: UIColor.white)
             addPlayerButton.setImage(addImage, for: .normal)
             addPlayerButton.sizeToFit()
             addPlayerButton.addTarget(self, action: #selector(segueToAddPlayer), for: .touchUpInside)
+        } else {
+            let oldHorizConstraint = mFABHorizConstraint
+            let oldVertConstraint = mFABVertConstraint
+            
+            UIView.animate(withDuration: 0.5, animations: { self.addPlayerButton.alpha = 0 }, completion: {(finished: Bool) -> Void in
+                
+                if let horiz = oldHorizConstraint {
+                    NSLayoutConstraint.deactivate([horiz])
+                }
+                
+                if let vert = oldVertConstraint {
+                    NSLayoutConstraint.deactivate([vert])
+                }
+                
+                
+                self.mFABHorizConstraint = self.addPlayerButton.trailingAnchor.constraint(equalTo: self.mPageContainer.view.trailingAnchor, constant: -self.mPageContainer.view.layoutMargins.right)
+                self.mFABVertConstraint = self.addPlayerButton.bottomAnchor.constraint(equalTo: vertAnchor, constant: -self.mPageContainer.view.layoutMargins.right)
+                NSLayoutConstraint.activate([self.mFABHorizConstraint, self.mFABVertConstraint])
+                
+                UIView.animate(withDuration: 0.5) {
+                    self.addPlayerButton.alpha = 1
+                }
+            })
         }
     }
     
@@ -256,7 +282,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
                         DispatchQueue.main.async {
                             SignupDayTableViewController.resetUsedImages()
                             self.mPageContainer.setViewControllers(controllers, animated: true)
-                            self.mPageContainer.tabBar.isHidden = self.mDays.count == 1
+                            self.mPageContainer.tabBar.isHidden = (self.mDays.count == 1)
                         }
                         
                         
