@@ -10,7 +10,7 @@ import UIKit
 
 class ObservedNavigationController: UINavigationController {
     
-    var observedDelegate: ObservedNavigationControllerDelegate?
+    weak var observedDelegate: ObservedNavigationControllerDelegate?
     
     
     
@@ -45,6 +45,6 @@ class ObservedNavigationController: UINavigationController {
 
 }
 
-protocol ObservedNavigationControllerDelegate {
+protocol ObservedNavigationControllerDelegate: NSObjectProtocol {
     func navigationBarVisibilityDidChange(isHidden: Bool)
 }

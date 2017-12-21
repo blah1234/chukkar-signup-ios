@@ -10,7 +10,7 @@ import UIKit
 
 class SignupDayTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, EditPlayerViewControllerDelegate {
 
-    var delegate: SignupDayTableViewControllerDelegate?
+    weak var delegate: SignupDayTableViewControllerDelegate?
     var pageIndex: Int = 0
     var displayedDay: Day!
     var image: UIImage?
@@ -367,7 +367,7 @@ extension SignupDayTableViewController {
 }
 
 
-protocol SignupDayTableViewControllerDelegate {
+protocol SignupDayTableViewControllerDelegate: NSObjectProtocol {
     func refreshSignups()
     func segueToAddPlayer()
 }
