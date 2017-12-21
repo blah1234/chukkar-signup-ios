@@ -127,7 +127,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         self.view.addSubview(splash)
         
         //Starts animation
-        splash.startAnimation() {
+        splash.startAnimation() { [unowned self] in
             log.info("Splash Completed")
             self.blurEffectView?.removeFromSuperview()
             self.addStatusBarBlurEffect()
@@ -139,7 +139,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         let urlRequest: URLRequest = URLRequest(url: requestURL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest) {
-            (data, response, error) -> Void in
+            [weak self] (data, response, error) -> Void in
             
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
@@ -154,19 +154,19 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                 dateFormat.timeZone = TimeZone(secondsFromGMT: 0)
                 
                 if let resetDate = dateFormat.date(from: dateStr!) {
-                    let prevResetDate = self.getPreviousWebAppResetDate()
+                    let prevResetDate = self?.getPreviousWebAppResetDate()
                     
                     if(prevResetDate == nil || resetDate > prevResetDate!) {
-                        self.writeResetDate(dateStr!)
+                        self?.writeResetDate(dateStr!)
                         
                         if(prevResetDate != nil) {
-                            self.resetAllCachedData()
+                            self?.resetAllCachedData()
                         }
                     }
                 }
                 
                 
-                self.loadPlayersAsync()
+                self?.loadPlayersAsync()
             }
         }
         
@@ -227,7 +227,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         let urlRequest: URLRequest = URLRequest(url: requestURL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest) {
-            (data, response, error) -> Void in
+            [weak self] (data, response, error) -> Void in
             
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
@@ -237,28 +237,30 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                     let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                     
                     if let days = json as? [String] {
-                        self.mDays.removeAll()
+                        if let mainCtrl = self {
+                            mainCtrl.mDays.removeAll()
                         
-                        for currDay in days {
-                            self.mDays.append(Day.valueOf(name: currDay))
-                        }
-                        
-                        self.mDays.sort()
-                        
-                        DispatchQueue.main.async {
-                            SignupDayTableViewController.resetUsedImages()
-                            self.mPageContainer.setViewControllers([self.createViewControllerAtIndex(0)], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
+                            for currDay in days {
+                                mainCtrl.mDays.append(Day.valueOf(name: currDay))
+                            }
                             
-                            self.mCurrentIndex = 0
+                            mainCtrl.mDays.sort()
+                        
+                            DispatchQueue.main.async {
+                                SignupDayTableViewController.resetUsedImages()
+                                mainCtrl.mPageContainer.setViewControllers([mainCtrl.createViewControllerAtIndex(0)], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
                             
-                            // Configure our custom pageControl
-                            self.view.bringSubview(toFront: self.pageControl)
-                            self.pageControl.numberOfPages = self.mDays.count
-                            self.pageControl.currentPage = 0
+                                mainCtrl.mCurrentIndex = 0
+                            
+                                // Configure our custom pageControl
+                                mainCtrl.view.bringSubview(toFront: mainCtrl.pageControl)
+                                mainCtrl.pageControl.numberOfPages = mainCtrl.mDays.count
+                                mainCtrl.pageControl.currentPage = 0
+                            }
+                            
+                            
+                            mainCtrl.loadPlayersAsync()
                         }
-                        
-                        
-                        self.loadPlayersAsync()
                     }
                 } catch {
                     log.error("Error with parsing response data to Json: \(error)")
@@ -274,7 +276,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         let urlRequest: URLRequest = URLRequest(url: requestURL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest) {
-            (data, response, error) -> Void in
+            [weak self] (data, response, error) -> Void in
             
             //because we're using the shared URLSession, the completion handler is NOT running on the main dispatch queue!
             let httpResponse = response as! HTTPURLResponse
@@ -283,7 +285,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
             if(statusCode == 200) {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                    self.parsePlayers(json: json, scrollToBottom: false)
+                    self?.parsePlayers(json: json, scrollToBottom: false)
                 } catch {
                     log.error("Error with parsing response data to Json: \(error)")
                 }
@@ -326,6 +328,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
                 }
                 
                 
+                //main is a static var on DispatchQueue, the closure here is the parent and self is the child. no retain cycle
                 DispatchQueue.main.async {
                     self.mData = dataHelper
                     
