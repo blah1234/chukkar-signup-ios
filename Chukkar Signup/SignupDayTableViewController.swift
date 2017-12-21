@@ -290,9 +290,7 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let edit = UITableViewRowAction(style: .normal, title: "          ") {
-            (action:UITableViewRowAction, indexPath:IndexPath) in
-            
+        let edit = UITableViewRowAction(style: .normal, title: "          ") { [unowned self] (action:UITableViewRowAction, indexPath:IndexPath) in
             self.performSegue(withIdentifier: Storyboard.editPlayerSegueId, sender: self.tableView.cellForRow(at: indexPath))
         }
         edit.backgroundColor = getColor(withLabelText: "\u{2710}", textColor: .white, bgColor: .lightGray, height: tableView.cellForRow(at: indexPath)!.bounds.height)

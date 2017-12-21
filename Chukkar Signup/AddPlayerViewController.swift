@@ -190,7 +190,7 @@ class AddPlayerViewController: UIViewController, UITextFieldDelegate {
         
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest) {
-            (data, response, error) -> Void in
+            [weak self] (data, response, error) -> Void in
             
             //because we're using the shared URLSession, the completion handler is NOT running on the main dispatch queue!
             let httpResponse = response as! HTTPURLResponse
@@ -200,18 +200,18 @@ class AddPlayerViewController: UIViewController, UITextFieldDelegate {
                 
                 DispatchQueue.main.async {
                     do {
-                        self.responseJSON = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                        self.performSegue(withIdentifier: Storyboard.unwindToHomeSegueId, sender: AddPlayerViewController.self)
+                        self?.responseJSON = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                        self?.performSegue(withIdentifier: Storyboard.unwindToHomeSegueId, sender: AddPlayerViewController.self)
                     } catch {
                         if let str = String.init(data: data!, encoding: .utf8) {
-                            self.responseJSON = str
-                            self.performSegue(withIdentifier: Storyboard.unwindToHomeSegueId, sender: AddPlayerViewController.self)
+                            self?.responseJSON = str
+                            self?.performSegue(withIdentifier: Storyboard.unwindToHomeSegueId, sender: AddPlayerViewController.self)
                         } else {
                             log.error("Error with parsing response data: \(data as Optional)")
                         }
                     }
                     
-                    self.loading.stopAnimating()
+                    self?.loading.stopAnimating()
                 }
             }
         }
