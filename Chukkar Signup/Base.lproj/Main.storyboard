@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G17023" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zny-Wg-lfi">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zny-Wg-lfi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -89,7 +89,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Tj-ZC-lCf" customClass="JVFloatLabeledTextField">
-                                <rect key="frame" x="16" y="40" width="343" height="52"/>
+                                <rect key="frame" x="16" y="40" width="343" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -101,11 +101,11 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Za-KY-QvO" customClass="CircularSliderView" customModule="Chukkar_Signup" customModuleProvider="target">
-                                <rect key="frame" x="16" y="199.5" width="343" height="467.5"/>
+                                <rect key="frame" x="16" y="194" width="343" height="473"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chukkars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZy-lP-VHs">
-                                <rect key="frame" x="16" y="166.5" width="343" height="33"/>
+                                <rect key="frame" x="16" y="162.5" width="343" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -188,20 +188,37 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GEa-KI-OP1"/>
                                     <barButtonItem image="check" id="YKC-pI-Zvb">
                                         <connections>
-                                            <action selector="editChukkarsAsync" destination="lXa-xU-WzD" id="xg9-3R-f0s"/>
+                                            <action selector="onEditComplete:" destination="lXa-xU-WzD" id="5rN-pA-bJe"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y66-FZ-7zL">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="231"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lLg-Yf-e07">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="231"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Be-yO-ko0">
+                                <rect key="frame" x="90" y="127" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="O4j-h8-Dfa" firstAttribute="top" secondItem="d7d-De-9K6" secondAttribute="bottom" id="2m7-9R-WmJ"/>
                             <constraint firstItem="d7d-De-9K6" firstAttribute="leading" secondItem="16k-sA-hYE" secondAttribute="leading" id="7Nl-JR-sT7"/>
                             <constraint firstItem="O4j-h8-Dfa" firstAttribute="trailing" secondItem="16k-sA-hYE" secondAttribute="trailing" id="Arm-T9-fvN"/>
+                            <constraint firstItem="Y66-FZ-7zL" firstAttribute="top" secondItem="d7d-De-9K6" secondAttribute="top" id="Ico-0i-D7x"/>
+                            <constraint firstItem="Y66-FZ-7zL" firstAttribute="trailing" secondItem="d7d-De-9K6" secondAttribute="trailing" id="Qlz-mJ-IIL"/>
                             <constraint firstItem="O4j-h8-Dfa" firstAttribute="leading" secondItem="16k-sA-hYE" secondAttribute="leading" id="TRE-pB-2AP"/>
+                            <constraint firstItem="5Be-yO-ko0" firstAttribute="centerX" secondItem="16k-sA-hYE" secondAttribute="centerX" id="ZBr-Yt-xWz"/>
                             <constraint firstItem="MO4-V1-SMy" firstAttribute="top" secondItem="O4j-h8-Dfa" secondAttribute="bottom" id="a9A-zz-gig"/>
+                            <constraint firstItem="Y66-FZ-7zL" firstAttribute="bottom" secondItem="O4j-h8-Dfa" secondAttribute="top" id="aTe-G0-zQm"/>
                             <constraint firstItem="d7d-De-9K6" firstAttribute="top" secondItem="jE0-wb-i2L" secondAttribute="bottom" id="bZq-dK-JYk"/>
+                            <constraint firstItem="Y66-FZ-7zL" firstAttribute="leading" secondItem="d7d-De-9K6" secondAttribute="leading" id="bgV-Sy-j01"/>
+                            <constraint firstItem="5Be-yO-ko0" firstAttribute="centerY" secondItem="16k-sA-hYE" secondAttribute="centerY" id="ms4-Ld-CQV"/>
                             <constraint firstItem="d7d-De-9K6" firstAttribute="trailing" secondItem="16k-sA-hYE" secondAttribute="trailing" id="tRF-oX-MW7"/>
                         </constraints>
                     </view>
@@ -210,12 +227,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="200" height="275"/>
                     <connections>
+                        <outlet property="blurEffect" destination="Y66-FZ-7zL" id="gRH-H4-5UP"/>
                         <outlet property="chukkarsSlider" destination="d7d-De-9K6" id="pZq-lS-Bay"/>
+                        <outlet property="loading" destination="5Be-yO-ko0" id="yJ1-II-VT1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqP-Id-iwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2275" y="282"/>
+            <point key="canvasLocation" x="2273.5999999999999" y="281.10944527736132"/>
         </scene>
         <!--Signup Day View Controller-->
         <scene sceneID="zwJ-ER-igZ">
@@ -244,11 +263,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8oL-93-EIc" id="6Wg-pj-Ol0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chukkars" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0e-Pn-IzU">
-                                                    <rect key="frame" x="317" y="8" width="50" height="73"/>
+                                                    <rect key="frame" x="310" y="11" width="50" height="68"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="fgq-uN-MAE"/>
                                                     </constraints>
@@ -257,13 +276,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMo-gF-8V1">
-                                                    <rect key="frame" x="8" y="8" width="317" height="47.5"/>
+                                                    <rect key="frame" x="15" y="11" width="303" height="42"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoF-Ja-see">
-                                                    <rect key="frame" x="8" y="63.5" width="317" height="18"/>
+                                                    <rect key="frame" x="15" y="61" width="303" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -291,7 +310,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJw-re-5gH">
-                                <rect key="frame" x="16" y="211" width="47.5" height="34"/>
+                                <rect key="frame" x="16" y="213.5" width="44.5" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -379,23 +398,23 @@
                                 <rect key="frame" x="0.0" y="443" width="375" height="109"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6fZ-k7-8tK" id="DbU-92-t2h">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guQ-gc-CjF">
-                                            <rect key="frame" x="8" y="12" width="263" height="61"/>
+                                            <rect key="frame" x="16" y="15" width="249.5" height="56"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="500" verticalHuggingPriority="251" text="Chukkars" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4E-eg-LhC">
-                                            <rect key="frame" x="279" y="8" width="88" height="92"/>
+                                            <rect key="frame" x="273.5" y="11" width="85.5" height="87"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsC-QO-P4Z">
-                                            <rect key="frame" x="8" y="79" width="263" height="17"/>
+                                            <rect key="frame" x="16" y="77" width="249.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -442,7 +461,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Zny-Wg-lfi" customClass="ObservedNavigationController" customModule="Chukkar_Signup" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XdQ-fG-Gtn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
