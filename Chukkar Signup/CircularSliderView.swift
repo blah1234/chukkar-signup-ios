@@ -95,7 +95,7 @@ import UIKit
     
 
     
-    func valueChanged(slider: CircularSlider) {
+    @objc func valueChanged(slider: CircularSlider) {
         // Do something with the value...
         
     }

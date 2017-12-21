@@ -488,7 +488,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
         loadActiveDaysAsync()
     }
     
-    func segueToAddPlayer() {
+    @objc func segueToAddPlayer() {
         performSegue(withIdentifier: Storyboard.addPlayerSegueId, sender: self)
     }
     
@@ -565,17 +565,16 @@ private extension UIImage {
         let tempItem = UIBarButtonItem(barButtonSystemItem: systemItem, target: nil, action: nil)
         
         // add to toolbar and render it
-        UIToolbar().setItems([tempItem], animated: false)
+        let bar = UIToolbar()
+        bar.setItems([tempItem], animated: false)
+        bar.snapshotView(afterScreenUpdates: true)
         
         // got image from real uibutton
         let itemView = tempItem.value(forKey: "view") as! UIView
         
         for view in itemView.subviews {
-            if view is UIButton {
-                let button = view as! UIButton
-                let image = button.imageView!.image!
-                image.withRenderingMode(renderingMode)
-                return image
+            if let button = view as? UIButton, let image = button.imageView?.image {
+                return image.withRenderingMode(renderingMode)
             }
         }
         

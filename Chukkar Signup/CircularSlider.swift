@@ -25,11 +25,11 @@ class CircularSlider: UIControl {
     
     // MARK: Math Helpers
     func DegreesToRadians(_ value:Double) -> Double {
-        return value * M_PI / 180.0
+        return value * .pi / 180.0
     }
     
     func RadiansToDegrees(_ value:Double) -> Double {
-        return value * 180.0 / M_PI
+        return value * 180.0 / .pi
     }
     
     func Square(_ value:CGFloat) -> CGFloat {
@@ -132,7 +132,7 @@ class CircularSlider: UIControl {
         let font = UIFont(name: "HelveticaNeue-UltraLight", size: Config.TB_FONTSIZE)
         //Calculate font size needed to display 2 numbers
         let str = "000" as NSString
-        let fontSize:CGSize = str.size(attributes: [NSFontAttributeName:font!])
+        let fontSize:CGSize = str.size(withAttributes: [NSAttributedStringKey.font:font!])
         
         //Using a TextField area we can easily modify the control to get user input from this field
         let textFieldRect = CGRect(x: (bounds.width  - fontSize.width) / 2.0,
@@ -204,7 +204,7 @@ class CircularSlider: UIControl {
         let ctx = UIGraphicsGetCurrentContext()
         
         /** Draw the Background **/
-        ctx?.addArc(center: self.center, radius: radius, startAngle: 0, endAngle: CGFloat(M_PI * 2), clockwise: false)
+        ctx?.addArc(center: self.center, radius: radius, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: false)
         ctx?.setStrokeColor(gray: 0.5, alpha: 0.5)
         
         ctx?.setLineWidth(Config.TB_BACKGROUND_WIDTH)
@@ -218,7 +218,7 @@ class CircularSlider: UIControl {
         /** Create THE MASK Image **/
         UIGraphicsBeginImageContext(CGSize(width: self.bounds.size.width, height: self.bounds.size.height))
         let imageCtx = UIGraphicsGetCurrentContext()
-        imageCtx?.addArc(center: self.center, radius: radius, startAngle: CGFloat(Double(0) + M_PI/2), endAngle: CGFloat(DegreesToRadians(Double(self.internalAngle))), clockwise: true)
+        imageCtx?.addArc(center: self.center, radius: radius, startAngle: CGFloat(Double(0) + .pi/2), endAngle: CGFloat(DegreesToRadians(Double(self.internalAngle))), clockwise: true)
         imageCtx?.setFillColor(UIColor.red.cgColor)
         imageCtx?.setStrokeColor(UIColor.red.cgColor)
         imageCtx?.setLineCap(.round)
