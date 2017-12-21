@@ -36,7 +36,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
     
     struct Storyboard {
         static let launchScreenName = "LaunchScreen"
-        static let logoInitialSize = 90
+        static let logoInitialSize = 150
         static let addPlayerSegueId = "addPlayer"
         static let signupDayControllerId = "SignupDayTableViewController"
     }
