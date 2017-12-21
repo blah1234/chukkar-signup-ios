@@ -80,7 +80,7 @@ class EditPlayerViewController: UIViewController {
             
             let session = URLSession.shared
             let task = session.dataTask(with: urlRequest) {
-                (data, response, error) -> Void in
+                [weak self] (data, response, error) -> Void in
                 
                 //because we're using the shared URLSession, the completion handler is NOT running on the main dispatch queue!
                 let httpResponse = response as! HTTPURLResponse
@@ -91,10 +91,10 @@ class EditPlayerViewController: UIViewController {
                     DispatchQueue.main.async {
                         do {
                             let responseJSON = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                            self.sendNotification(withJsonPayload: responseJSON)
+                            self?.sendNotification(withJsonPayload: responseJSON)
                         } catch {
                             if let str = String.init(data: data!, encoding: .utf8) {
-                                self.sendNotification(withJsonPayload: str)
+                                self?.sendNotification(withJsonPayload: str)
                             } else {
                                 log.error("Error with parsing response data: \(data as Optional)")
                             }
