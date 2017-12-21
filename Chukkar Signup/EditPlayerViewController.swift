@@ -11,6 +11,8 @@ import UIKit
 class EditPlayerViewController: UIViewController {
 
     @IBOutlet weak var chukkarsSlider: CircularSliderView!
+    @IBOutlet weak var blurEffect: UIVisualEffectView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     weak var delegate: EditPlayerViewControllerDelegate?
     var player: Player! {
@@ -65,7 +67,21 @@ class EditPlayerViewController: UIViewController {
         }
     }
     
-    @IBAction func editChukkarsAsync() {
+    @IBAction func onEditComplete(_ sender: Any) {
+        loading.startAnimating()
+
+        blurEffect.effect = nil
+        blurEffect.isHidden = false
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blurEffect.effect = UIBlurEffect(style: .light)
+        }, completion: { (finished: Bool) in
+            self.loading.stopAnimating()
+            self.editChukkarsAsync()
+        })
+    }
+    
+    private func editChukkarsAsync() {
         let oldChukkars = player.numChukkars!
         let newChukkars = chukkarsSlider.division!
         
