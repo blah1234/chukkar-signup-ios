@@ -486,7 +486,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         loadActiveDaysAsync()
     }
     
-    func segueToAddPlayer() {
+    @objc func segueToAddPlayer() {
         performSegue(withIdentifier: Storyboard.addPlayerSegueId, sender: self)
     }
     

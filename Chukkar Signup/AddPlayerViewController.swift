@@ -137,7 +137,7 @@ class AddPlayerViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func onNameEditingChanged() {
-        if let length = nameTextField.text?.characters.count {
+        if let length = nameTextField.text?.count {
             self.navigationItem.rightBarButtonItem?.isEnabled = nameTextField.text != nil && length > 0
         } else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
@@ -207,7 +207,7 @@ class AddPlayerViewController: UIViewController, UITextFieldDelegate {
                             self.responseJSON = str
                             self.performSegue(withIdentifier: Storyboard.unwindToHomeSegueId, sender: AddPlayerViewController.self)
                         } else {
-                            log.error("Error with parsing response data: \(data)")
+                            log.error("Error with parsing response data: \(data as Optional)")
                         }
                     }
                     

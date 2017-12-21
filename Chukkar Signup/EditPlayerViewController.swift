@@ -96,7 +96,7 @@ class EditPlayerViewController: UIViewController {
                             if let str = String.init(data: data!, encoding: .utf8) {
                                 self.sendNotification(withJsonPayload: str)
                             } else {
-                                log.error("Error with parsing response data: \(data)")
+                                log.error("Error with parsing response data: \(data as Optional)")
                             }
                         }
                     }
