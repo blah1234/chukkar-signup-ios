@@ -294,6 +294,17 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         return [edit]
     }
     
+    @available(iOS 11.0, *)
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal, title: nil) { [unowned self] (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+            self.performSegue(withIdentifier: Storyboard.editPlayerSegueId, sender: self.tableView.cellForRow(at: indexPath))
+        }
+        edit.image = #imageLiteral(resourceName: "edit-row")
+        edit.backgroundColor = .lightGray
+        
+        return UISwipeActionsConfiguration(actions: [edit])
+    }
+    
     override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
         if editChukkarsTask != nil {
             editChukkarsTask?.resume()
