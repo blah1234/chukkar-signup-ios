@@ -60,6 +60,13 @@ class EditPlayerViewController: UIViewController {
         //delegate is already set to nil by the time completion handler is executed
         let popoverDelegate = self.popoverPresentationController?.delegate
        
+        if #available(iOS 11.0, *) {
+            //this is here to prevent a flicker of the background CircularSliderView when dismissing the view controller. Weird
+            if !blurEffect.isHidden {
+                chukkarsSlider.isHidden = true
+            }
+        }
+        
         self.dismiss(animated: true) {
             //https://developer.apple.com/documentation/uikit/uipopoverpresentationcontrollerdelegate/1622322-popoverpresentationcontrollerdid
             //The presentation controller calls this method only in response to user actions. It does not call this method if you dismiss the popover programmatically.
