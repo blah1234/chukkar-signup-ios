@@ -56,6 +56,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, UIPa
 //        navCtrl.observedDelegate = self
         
         view.bringSubview(toFront: activityIndicator)
+        activityIndicator.color = UIColor.gray
         activityIndicator.startAnimating()
         
         //put splash on top of the activityIndicator
