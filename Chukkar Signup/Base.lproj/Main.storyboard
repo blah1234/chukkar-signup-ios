@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zny-Wg-lfi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zny-Wg-lfi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,7 +59,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Tj-ZC-lCf" customClass="JVFloatLabeledTextField">
-                                <rect key="frame" x="16" y="40" width="343" height="48"/>
+                                <rect key="frame" x="16" y="40" width="343" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -71,11 +71,11 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Za-KY-QvO" customClass="CircularSliderView" customModule="Chukkar_Signup" customModuleProvider="target">
-                                <rect key="frame" x="16" y="194" width="343" height="473"/>
+                                <rect key="frame" x="16" y="195" width="343" height="472"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chukkars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZy-lP-VHs">
-                                <rect key="frame" x="16" y="162.5" width="343" height="31.5"/>
+                                <rect key="frame" x="16" y="163.5" width="343" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                             <constraint firstItem="2Za-KY-QvO" firstAttribute="bottom" secondItem="5lG-kk-KbT" secondAttribute="bottomMargin" id="op0-Au-GRU"/>
                             <constraint firstItem="HZy-lP-VHs" firstAttribute="top" secondItem="0Tj-ZC-lCf" secondAttribute="bottom" constant="75" id="ou0-Sf-NXC"/>
                             <constraint firstItem="EG5-7c-8nW" firstAttribute="bottom" secondItem="plj-vM-Go1" secondAttribute="top" id="sk8-JM-o8L"/>
-                            <constraint firstItem="ynp-WI-Pzq" firstAttribute="bottom" secondItem="plj-vM-Go1" secondAttribute="top" id="sys-Y3-2Jz"/>
+                            <constraint firstItem="ynp-WI-Pzq" firstAttribute="bottom" secondItem="5lG-kk-KbT" secondAttribute="bottom" id="sys-Y3-2Jz"/>
                             <constraint firstItem="ynp-WI-Pzq" firstAttribute="leading" secondItem="5lG-kk-KbT" secondAttribute="leading" id="ukc-xv-Pag"/>
                             <constraint firstItem="EG5-7c-8nW" firstAttribute="top" secondItem="5lG-kk-KbT" secondAttribute="top" id="wpt-7m-2Pj"/>
                         </constraints>
@@ -447,6 +447,6 @@
     <resources>
         <image name="check" width="25" height="25"/>
         <image name="cover3" width="800" height="533"/>
-        <image name="cover9" width="800" height="533"/>
+        <image name="cover9" width="800" height="534"/>
     </resources>
 </document>
