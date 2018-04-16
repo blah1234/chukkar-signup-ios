@@ -29,9 +29,10 @@ class PlayerTableViewCell: UITableViewCell {
                 requestedDateLabel.text = dateFormatter.string(from: player.createDate ?? Date())
                 numChukkarsLabel.text = "\(player.numChukkars ?? 0)"
             } else {
-                nameLabel.text = nil
-                requestedDateLabel.text = nil
-                numChukkarsLabel.text = nil
+                // maintain cell height for blank rows
+                nameLabel.text = " "
+                requestedDateLabel.text = " "
+                numChukkarsLabel.text = " "
             }
         }
     }

@@ -254,7 +254,8 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numRows = (players?.count) ?? 0
+        // add 1 extra blank row at the bottom, so floating action button doesn't cover up a player's info
+        let numRows = players != nil ? (players!.count + 1) : 0
         
         if(numRows == 0) {
             tableView.separatorStyle = .none
@@ -271,7 +272,8 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.cellId, for: indexPath) as! PlayerTableViewCell
 
-        cell.player = players?[indexPath.row]
+        // for extra blank row at the bottom, just init to nil
+        cell.player = indexPath.row < players!.count ? players?[indexPath.row] : nil
         
         return cell
     }
@@ -281,13 +283,16 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return indexPath.row < players!.count   // don't allow editing for extra blank row at the bottom
     }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         //no-op: commit actions take place in UITableViewRowAction handlers
     }
+    
+    
+    // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let edit = UITableViewRowAction(style: .normal, title: "          ") { [unowned self] (action:UITableViewRowAction, indexPath:IndexPath) in
@@ -316,6 +321,18 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
             editChukkarsTask = nil
         }
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        // don't allow selection for extra blank row at the bottom
+        return indexPath.row < players!.count ? indexPath : nil
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        // don't allow highlight for extra blank row at the bottom. Difference between selection and highlight: https://stackoverflow.com/a/31059885
+        return indexPath.row < players!.count
+    }
+    
+    
     
     /*
     // Override to support rearranging the table view.
