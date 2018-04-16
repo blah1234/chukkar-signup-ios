@@ -41,6 +41,8 @@ class AddPlayerViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onSignupComplete))
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         
+        loading.color = UIColor.gray
+        
         nameTextField.becomeFirstResponder()
         nameTextField.delegate = self
         
