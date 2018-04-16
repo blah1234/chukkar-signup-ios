@@ -55,6 +55,7 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
 //        navCtrl.observedDelegate = self
         
         view.bringSubview(toFront: activityIndicator)
+        activityIndicator.color = UIColor.gray
         activityIndicator.startAnimating()
         
         // Create the page container
