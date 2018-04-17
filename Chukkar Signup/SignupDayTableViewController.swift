@@ -212,7 +212,8 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
     
     func scrollToBottom() {
         if players != nil {
-            let indexPath = IndexPath(row: players!.count - 1, section: 0)
+            // add 1 extra blank row at the bottom, so floating action button doesn't cover up a player's info
+            let indexPath = IndexPath(row: players!.count, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
