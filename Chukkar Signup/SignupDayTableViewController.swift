@@ -87,6 +87,8 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
         
         
         let rc = UIRefreshControl()
+        rc.tintColor = UIColor.gray
+        rc.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
         rc.addTarget(self, action: #selector(refresh(refreshControl:)), for: .valueChanged)
         tableView.refreshControl = rc
         tableView.bringSubview(toFront: rc)
