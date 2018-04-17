@@ -137,8 +137,15 @@ class SignupDayTableViewController: UITableViewController, UIPopoverPresentation
             
             //make header image translucent, so RefreshControl is easier to see
             let screenSize = UIScreen.main.bounds
-            var alpha = (screenSize.height/4.0 + tableView.contentOffset.y + effectiveHeight) / (screenSize.height/4.0)
+            var alphaOffset = tableView.contentOffset.y
+            
+            if #available(iOS 11.0, *) {
+                alphaOffset += tableView.safeAreaInsets.top
+            }
+            
+            var alpha = (screenSize.height/4.0 + alphaOffset + effectiveHeight) / (screenSize.height/4.0)
             alpha = max(0.15, alpha)
+            alpha = min(1, alpha)
             headerView.imageView.alpha = alpha
         } else {
             headerView.imageView.alpha = 1
