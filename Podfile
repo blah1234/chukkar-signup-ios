@@ -10,5 +10,6 @@ target 'Chukkar Signup' do
   pod 'SwiftyBeaver'
   pod 'RevealingSplashView'
   pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/Buttons+ColorThemer'
 
 end
