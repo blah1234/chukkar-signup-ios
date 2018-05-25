@@ -11,6 +11,7 @@ import Foundation
 import os.log
 import RevealingSplashView
 import MaterialComponents
+import MaterialComponents.MaterialButtons_ColorThemer
 
 
 class MainViewController: UIViewController, UIPageViewControllerDataSource, SignupDayTableViewControllerDelegate {
@@ -137,6 +138,11 @@ class MainViewController: UIViewController, UIPageViewControllerDataSource, Sign
             addPlayerButton.setImage(addImage, for: .normal)
             addPlayerButton.sizeToFit()
             addPlayerButton.addTarget(self, action: #selector(segueToAddPlayer), for: .touchUpInside)
+            
+            let colorScheme = MDCSemanticColorScheme()
+            //Floating action buttons use the secondary color:
+            colorScheme.secondaryColor = self.view.tintColor
+            MDCFloatingButtonColorThemer.applySemanticColorScheme(colorScheme, to: addPlayerButton)
         } else {
             if let horiz = mFABHorizConstraint {
                 NSLayoutConstraint.deactivate([horiz])
